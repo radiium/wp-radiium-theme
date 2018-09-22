@@ -1,3 +1,14 @@
+/*
+    Custom checkbox
+
+    use:
+    <div class="checkbox-btn">
+        <input type="checkbox" />
+        <label>Your label</label>
+    </div>
+*/
+
+
 body {
 	-webkit-animation: bugfix infinite 1s
 }
@@ -14,7 +25,6 @@ body {
 .checkbox-btn {
 	position: relative;
     // padding-left: 18px;
-
 
     input[type="checkbox"],
     input[type="radio"] {
