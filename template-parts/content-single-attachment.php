@@ -12,11 +12,18 @@
 
 <div class="attachWrapper">
     <div class="attachInfos">
+
+        <div class="returnBtn">
+            <a class="footerHomeLink" href="<?php echo esc_url( home_url() ); ?>">
+            <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/arrow_return.png" alt="">
+            </a>
+        </div>
+
         <div class="attachTitle"><?php echo $radiium_tech ?></div>
         <div class="attachMeta"><?php echo $radiium_format.' '.$radiium_year ?></div>
     </div>
 
-    <div class="attachImg">
+    <div class="attachImg flexSpacer">
         <img src="<?php echo $imgFull[0] ?>" alt="$alt">
     </div>
 </div>

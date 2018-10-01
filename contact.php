@@ -1,8 +1,11 @@
 <?php
 /*
-Template Name: Contact Form
+Template Name: Contact me
 */
 ?>
+
+<?php get_header(); ?>
+
 
 <?php
 //If the form is submitted
@@ -162,3 +165,5 @@ if ( isset( $_POST['submitted'] ) ) {
 </div>
 
 <?php } ?>
+
+<?php get_footer(); ?>
