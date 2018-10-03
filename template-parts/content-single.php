@@ -4,8 +4,8 @@
     <div class="singlePostContainer">
 
         <!-- Gallery infos -->
-        <div class="postInfos">
-            <div class="postInfosHeader flexRow">
+        <div class="singlePostInfos">
+            <div class="singlePostInfosHeader flexRow">
                 <div class="returnBtn">
                     <a class="footerHomeLink" href="<?php echo esc_url( home_url() ); ?>">
                     <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/arrow_return.png" alt="">
@@ -15,7 +15,7 @@
             </div>
 
             <!-- Post text -->
-            <div class="postInfosText">
+            <div class="singlePostInfosText">
                 <?php
                 add_filter('the_content', 'remove_shortcode_from');
                 the_content();
