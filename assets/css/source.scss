@@ -224,31 +224,85 @@
 /*  6.	ALL ARTICLES PAGES
 /*
 *******************************************/
+
 .postsGridWrapper {
-	width: 100%;
+    width: calc(100% - 60px);
     height: auto;
+    margin: 30px;
+
+    .postControls {
+        margin-bottom: 30px;
+        display: flex;
+
+        .postFilters {
+            margin-right: 40px;
+        }
+
+        .postFilters,
+        .postSorters {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .postControlsLabel {
+            color: gray;
+            padding: 5px;
+            white-space: nowrap;
+        }
+
+        .postBtn {
+            font-size: 1rem;
+            padding: 5px;
+            margin: 2px;
+
+            // &:hover {}
+
+            &:active,
+            &.activ {
+                color: white;
+                background-color: black;
+
+            }
+        }
+    }
 
     .postsGrid {
-        margin: 30px;
-        height: auto;
+        width: 100%;
+        margin: 0 auto;
+
+        .sizer {
+            // width: 8.33333%;
+            width: 10px;
+        }
 
         .postItem {
-            transform-style: preserve-3D;
-            width: 100%;
-            max-width: 600px;
-            height: 100px;
+            position: relative;
+            float: left;
+            min-height: 1px;
+            width: 23%;
+            margin: 5px 5px 5px 5px;
             overflow: hidden;
-            margin: 0 auto;
-
-            &:not(:last-child) {
-                margin-bottom: 20px;
-            }
 
             .postItemLink {
-                margin: 0;
-                padding: 0;
+                position: relative;
                 width: 100%;
-                height: 100%;
+                height: 0;
+                padding-bottom: 100%;
+                overflow: hidden;
+
+                .postItemThumb {
+                    width: 100%;
+                    height: 100%;
+
+                    img {
+                        display: block;
+                        width: 100%;
+                        max-width: none;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
                 &:hover {
                     img {
                         @include transform(scale(1.05));
@@ -256,7 +310,7 @@
                     .overlay {
                         background-color: rgba(0, 0, 0, 0.6);
                     }
-                    .postTitle {
+                    .postInfos {
                         @include transform(scale(1.1) translateY(0));
                     }
                 }
@@ -281,16 +335,34 @@
                     @include transition(all ease-out .3s);
                 }
 
-                .postTitle {
+                .postInfos {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    font-size: 2em;
                     font-weight: bold;
                     color: white;
                     text-align: center;
+                    padding: 20px;
                     @include transition(all ease-out .3s);
                     @include transform(scale(1));
+                    text-shadow: rgb(0, 0, 0) 1px 0px 0px,
+                                 rgb(0, 0, 0) 0.540302px 0.841471px 0px,
+                                 rgb(0, 0, 0) -0.416147px 0.909297px 0px,
+                                 rgb(0, 0, 0) -0.989992px 0.14112px 0px,
+                                 rgb(0, 0, 0) -0.653644px -0.756802px 0px,
+                                 rgb(0, 0, 0) 0.283662px -0.958924px 0px,
+                                 rgb(0, 0, 0) 0.96017px -0.279415px 0px;
+
+                    .postTitle {
+                        font-size: 2em;
+
+                    }
+
+                    .postCount {
+                        font-size: 1.5em;
+                        opacity: 0.8;
+                    }
+
                 }
             }
             // .postItemThumbReplace { }
@@ -348,15 +420,16 @@
         flex-wrap: nowrap;
         height: 100%;
         width: auto;
+        margin-right: 20px;
         overflow-x: auto;
         overflow-y: hidden;
 
-        .postInfos {
+        .singlePostInfos {
             width: 350px;
             min-width: 350px;
             padding: 20px;
 
-            .postInfosHeader {
+            .singlePostInfosHeader {
                 margin-bottom: 20px;
 
                 .returnBtn {
@@ -369,7 +442,10 @@
                         margin-right: 20px;
                     }
 
-                    img { height: 2em; }
+                    img {
+                        height: 2em;
+                        min-width: 44px;
+                    }
                 }
 
                 .title {
@@ -442,13 +518,8 @@
         width: 300px;
         min-width: 300px;
 
-        .attachTitle {
-
-        }
-
-        .attachMeta {
-
-        }
+        // .attachTitle {}
+        // .attachMeta {}
 
         .returnBtn {
             margin: 0 15px 15px 5px;
@@ -459,7 +530,10 @@
                 margin-right: 20px;
             }
 
-            img { height: 2em; }
+            img {
+                height: 2em;
+                min-width: 44px;
+            }
         }
 
     }
@@ -793,13 +867,37 @@
         .menuMobil { display: flex; }
     }
 
-	/* CONTENT */
-	.postTitle {
-		font-size: 1.5em;
-	}
-	.postsGrid {
-		margin: 10px;
-	}
+    /* CONTENT
+    .postItemThumb {
+        .postInfos {
+            .postTitle {
+                // font-size: 2em;
+            }
+
+            .postCount {
+                // font-size: 1.5em;
+            }
+        }
+    }
+	// .postsGrid { margin: 10px; }
+    */
+
+    .postsGridWrapper {
+        width: calc(100% - 30px);
+        margin: 15px;
+
+        .postControls {
+            flex-direction: column;
+            .postSorters {
+                margin-top: 10px;
+            }
+        }
+        .postsGrid {
+            .postItem {
+                width: 100%;
+            }
+        }
+    }
 
     .singlePostWrapper {
         padding-bottom: 0;
@@ -814,12 +912,12 @@
             flex-direction: column;
             width: 100%;
 
-            .postInfos {
+            .singlePostInfos {
                 width: 100%;
                 min-width: 100%;
                 padding: 60px 10px;
             }
-            .postContent {
+            .singlePostContent {
                 flex-direction: column;
 
                 .galItem {
@@ -899,13 +997,44 @@
     }
 
     // POST
+    /*
 	.postInfos {
-		width: 290px;
-		min-width: 290px;
-	}
+        width: 290px;
+        min-width: 290px;
+    }
+    */
+
+    .postsGridWrapper {
+        width: calc(100% - 30px);
+        margin: 15px;
+
+        .postControls {
+            flex-direction: column;
+            .postSorters {
+                margin-top: 10px;
+            }
+        }
+        .postsGrid {
+            .postItem {
+                width: 45%;
+            }
+        }
+    }
 }
 
-// @media screen and (max-width:1024px) {}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .postsGridWrapper {
+        width: calc(100% - 30px);
+        margin: 15px;
+
+        .postsGrid {
+            .postItem {
+                width: 31%;
+            }
+        }
+    }
+}
+
 // @media screen and (max-width:1140px) { }
 // @media screen and (max-width:1280px) { }
 // @media screen and (-webkit-min-device-pixel-ratio: 1.5),
@@ -960,9 +1089,7 @@
     .header {
         top: 32px;
     }
-    .wrapper {
-        // height: calc(100% - 20px);
-    }
+    // .wrapper { height: calc(100% - 20px); }
 }
 
 @media screen and ( max-width: 782px ) {
@@ -971,8 +1098,6 @@
         .header {
             top: 46px;
         }
-        .wrapper {
-            // height: calc(100% - 20px);
-        }
+        // .wrapper { height: calc(100% - 20px); }
     }
 }
