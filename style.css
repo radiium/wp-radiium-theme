@@ -146,17 +146,25 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 *******************************************/
 .postsGridWrapper { width: calc(100% - 60px); height: auto; margin: 30px; }
 
-.postsGridWrapper .postControls { margin-bottom: 30px; display: flex; }
+.postsGridWrapper .postControlsWrapper { display: flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 30px; }
 
-.postsGridWrapper .postControls .postFiltersContainer { margin-right: 40px; }
+.postsGridWrapper .postControlsWrapper .toggleFiltersBtn { width: 30px; min-width: 30px; height: 35px; min-height: 35px; margin: 5px 15px 5px 5px; cursor: pointer; }
 
-.postsGridWrapper .postControls .postFiltersContainer, .postsGridWrapper .postControls .postSortersContainer { display: flex; flex-wrap: nowrap; }
+.postsGridWrapper .postControlsWrapper .toggleFiltersBtn img { width: 100%; height: auto; }
 
-.postsGridWrapper .postControls .postControlsLabel { color: gray; padding: 5px; white-space: nowrap; }
+.postsGridWrapper .postControlsWrapper .postControls { display: flex; flex-direction: column; }
 
-.postsGridWrapper .postControls .postBtn { font-size: 1rem; padding: 5px; margin: 2px; }
+.postsGridWrapper .postControlsWrapper .postControls .sortersContainer { margin-bottom: 15px; }
 
-.postsGridWrapper .postControls .postBtn:active, .postsGridWrapper .postControls .postBtn.activ { color: white; background-color: black; }
+.postsGridWrapper .postControlsWrapper .postControls .filtersContainer, .postsGridWrapper .postControlsWrapper .postControls .sortersContainer { display: flex; flex-wrap: nowrap; }
+
+.postsGridWrapper .postControlsWrapper .postControls .postControlsLabel { color: gray; padding: 5px; white-space: nowrap; }
+
+.postsGridWrapper .postControlsWrapper .postControls .postControlsItems { display: flex; flex-direction: row; flex-wrap: wrap; }
+
+.postsGridWrapper .postControlsWrapper .postControls .postBtn { font-size: 1rem; padding: 5px; margin: 2px; }
+
+.postsGridWrapper .postControlsWrapper .postControls .postBtn:active, .postsGridWrapper .postControlsWrapper .postControls .postBtn.activ { color: white; background-color: black; }
 
 .postsGridWrapper .postsList { display: flex; flex-direction: column; align-content: flex-start; }
 
@@ -383,8 +391,8 @@ body { -webkit-animation: bugfix infinite 1s; }
   .headerWrapper .menuMobil { display: flex; }
   /* CONTENT .postItemThumb { .postInfos { .postTitle { // font-size: 2em; } .postCount { // font-size: 1.5em; } } } // .postsGrid { margin: 10px; } */
   .postsGridWrapper { width: calc(100% - 30px); margin: 15px; }
-  .postsGridWrapper .postControls { flex-direction: column; }
-  .postsGridWrapper .postControls .postSortersContainer { margin-top: 10px; }
+  .postsGridWrapper .postControlsWrapper { flex-direction: column; }
+  .postsGridWrapper .postControlsWrapper .toggleFiltersBtn { align-self: center; margin: 5px 5px 15px 5px; }
   .postsGridWrapper .postsList .postsListItem .postItemLink .thumb { height: 150px; width: 300px; }
   .postsGridWrapper .postsList .postsListItem .postItemLink .postInfos { opacity: 1; }
   .postsGridWrapper .postsList .postsListItem .postItemLink:hover { transform: none; }
@@ -408,8 +416,8 @@ body { -webkit-animation: bugfix infinite 1s; }
   .headerWrapper .header .menuMobilBtn { display: block; }
   .headerWrapper .menuMobil { display: flex; }
   .postsGridWrapper { width: calc(100% - 30px); margin: 15px; }
-  .postsGridWrapper .postControls { flex-direction: column; }
-  .postsGridWrapper .postControls .postSortersContainer { margin-top: 10px; }
+  .postsGridWrapper .postControlsWrapper { flex-direction: column; }
+  .postsGridWrapper .postControlsWrapper .toggleFiltersBtn { align-self: center; margin: 5px 5px 15px 5px; }
   .singlePostWrapper { height: auto; }
   .singlePostWrapper .singlePostContainer { overflow: auto; flex-direction: column; }
   .singlePostWrapper .singlePostContainer .singlePostInfos { width: 100%; }

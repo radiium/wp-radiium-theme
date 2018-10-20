@@ -77,7 +77,7 @@ if ( ! function_exists( 'radiium_scripts' ) ) {
  * (see => http://photoswipe.com/)
  */
 if ( ! function_exists( 'customFormatGallery' ) ) {
-	function customFormatGallery( $string, $attr ){
+	function customFormatGallery( $string, $attr ) {
 
         $posts_order_string = $attr['ids'];
         $posts_order = explode( ',', $posts_order_string );

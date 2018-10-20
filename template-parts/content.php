@@ -31,28 +31,40 @@ $userAgentClass = '';
 
 <div class="postsGridWrapper">
 
-    <!-- Filters/Sorts Controls -->
-    <div class="postControls">
-        <div class="postFiltersContainer">
-            <div class="postControlsLabel">Filter :</div>
+    <!-- Controls -->
+    <div class="postControlsWrapper">
 
-            <div class="postControlsItems">
-                <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
-
-                <?php foreach (get_categories() as $cat) { ?>
-                    <input class="postFilterBtn postBtn" type="button" value="<?php echo $cat->name ?>" data-filter="<?php echo $cat->name ?>"></button>
-                <?php } ?>
-            </div>
+        <!-- Toggle controls -->
+        <div class="toggleFiltersBtn" title="Filters">
+            <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/filters.png" alt="">
         </div>
 
-        <div class="postSortersContainer">
-            <div class="postControlsLabel">sort :</div>
-            <div class="postControlsItems">
-                <input class="postShuffleBtn postBtn" type="button" value="Shuffle"></button>
-                <input class="postReverseBtn postBtn" type="button" value="Reverse"></button>
+
+        <div class="postControls" style="display: none;">
+
+            <!-- Sorters -->
+            <div class="sortersContainer">
+                <div class="postControlsLabel">sort :</div>
+                <div class="postControlsItems">
+                    <input class="postShuffleBtn postBtn" type="button" value="Shuffle"></button>
+                    <input class="postReverseBtn postBtn" type="button" value="Reverse"></button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filtersContainer">
+                <div class="postControlsLabel">Filter :</div>
+                <div class="postControlsItems">
+                    <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
+                    <?php foreach (get_categories() as $cat) { ?>
+                        <input class="postFilterBtn postBtn" type="button" value="<?php echo $cat->name ?>" data-filter="<?php echo $cat->name ?>"></button>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     </div>
+
+
 
 
     <style>
@@ -62,7 +74,6 @@ $userAgentClass = '';
     <!-- Posts grid -->
     <div class="postsList">
     <?php while ( have_posts()) : the_post(); ?>
-
 
         <!-- Post item -->
         <figure class="postsListItem hidenItem" data-groups='[<?php echo radiium_get_post_categories() ?>]'>

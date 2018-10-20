@@ -14,7 +14,6 @@ jQuery( document ).ready( function( $ ) {
 
 	$('.' + itemSelector).each(function(i, item) {
 		var clip = generateRandomClipPathRules();
-		console.log('Test clip rule:', clip);
 		$(item).find('img').attr('style', clip)
 	})
 
@@ -24,6 +23,10 @@ jQuery( document ).ready( function( $ ) {
 		shuffleInstance.layout();
 		$('.hidenItem').removeClass('hidenItem');
 
+	});
+
+	$('.toggleFiltersBtn').click(function() {
+		$('.postControls').slideToggle(200);
 	});
 
 	// Filter items by group
@@ -47,7 +50,6 @@ jQuery( document ).ready( function( $ ) {
 				$(this).removeClass('activ');
 			}
 
-			console.log(filtersList.length)
 			if (filtersList.length < 1) {
 				$('.postFilterAllBtn').addClass('activ');
 			}

@@ -230,42 +230,71 @@
     height: auto;
     margin: 30px;
 
-    .postControls {
-        margin-bottom: 30px;
+
+
+
+    .postControlsWrapper {
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-bottom: 30px;
 
-        .postFiltersContainer {
-            margin-right: 40px;
+        .toggleFiltersBtn {
+            width: 30px;
+            min-width: 30px;
+            height: 35px;
+            min-height: 35px;
+            margin: 5px 15px 5px 5px;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
         }
 
-        .postFiltersContainer,
-        .postSortersContainer {
+        .postControls {
             display: flex;
-            flex-wrap: nowrap;
-        }
+            flex-direction: column;
 
-        .postControlsLabel {
-            color: gray;
-            padding: 5px;
-            white-space: nowrap;
-        }
-        // .postControlsItems {}
+            .sortersContainer {
+                margin-bottom: 15px;
+            }
 
-        .postBtn {
-            font-size: 1rem;
-            padding: 5px;
-            margin: 2px;
+            .filtersContainer,
+            .sortersContainer {
+                display: flex;
+                flex-wrap: nowrap;
 
-            // &:hover {}
+            }
 
-            &:active,
-            &.activ {
-                color: white;
-                background-color: black;
+            .postControlsLabel {
+                color: gray;
+                padding: 5px;
+                white-space: nowrap;
+            }
+            .postControlsItems {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
 
+            .postBtn {
+                font-size: 1rem;
+                padding: 5px;
+                margin: 2px;
+
+                // &:hover {}
+                &:active,
+                &.activ {
+                    color: white;
+                    background-color: black;
+
+                }
             }
         }
     }
+
 
     .postsList {
         display: flex;
@@ -822,10 +851,12 @@
         width: calc(100% - 30px);
         margin: 15px;
 
-        .postControls {
+        .postControlsWrapper {
             flex-direction: column;
-            .postSortersContainer {
-                margin-top: 10px;
+
+            .toggleFiltersBtn {
+                align-self: center;
+                margin: 5px 5px 15px 5px;
             }
         }
 
@@ -925,10 +956,12 @@
         width: calc(100% - 30px);
         margin: 15px;
 
-        .postControls {
+        .postControlsWrapper {
             flex-direction: column;
-            .postSortersContainer {
-                margin-top: 10px;
+
+            .toggleFiltersBtn {
+                align-self: center;
+                margin: 5px 5px 15px 5px;
             }
         }
     }
