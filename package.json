@@ -4,10 +4,15 @@
   "description": "Use Sass with WordPress, Node Script in SCSS flavour.",
   "scripts": {
     "css": "node-sass --output-style compact --include-path scss assets/css/source.scss style.css",
-    "watch": "nodemon -e scss -x \"npm run css\""
+    "watch": "nodemon -e scss -x \"npm run css\"",
+    "ugly": "uglifyjs --compress"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
     "node-sass": "^4.5.3",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "pump": "^3.0.0"
   }
 }
