@@ -58,7 +58,7 @@
             ?>
 
             <!-- Social icons -->
-            <div class="section-inner accountBtnBox flexEnd normalMenu">
+            <div class="section-inner accountBtnBox headerAccountBtnBox normalMenu">
                 <a class="accountBtn" target="_blank" href="https://www.instagram.com/_unlink/" title="Link to instagram!">
 				<img src="<?php echo get_site_url() ?>/wp-content/uploads/assets/instache-logo.svg" alt="">
 				</a>
@@ -71,6 +71,10 @@
 				<img src="<?php echo get_site_url() ?>/wp-content/uploads/assets/gitgit-logo.svg" alt="">
 				</a>
             </div>
+
+            <!-- Copyright infos -->
+            <p class="" >Copyright &copy; 2016 - <?php echo date( 'Y' ); ?>&nbsp;&nbsp;&nbsp;<a class="footerHomeLink" href="<?php echo esc_url( home_url() ); ?>" class="site-name"><?php bloginfo( 'name' ); ?></a></p>
+
         </div>
 
     </div><!-- END Navigation -->
