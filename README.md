@@ -9,8 +9,12 @@ This theme use sass (source in [assets/css](./assets/css))
 #### Install deps
 > npm install
 
-#### Compil once
+#### CSS:
+> # Compil once
 > npm run css
-
-#### Watch change
+> # Watch change
 > npm run watch
+
+#### JS:
+> # Minify
+> gulp compress
