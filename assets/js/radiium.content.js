@@ -14,6 +14,7 @@ jQuery( document ).ready( function( $ ) {
 
 	$('.' + itemSelector).each(function(i, item) {
 		var clip = generateRandomClipPathRules();
+		console.log('Test clip rule:', clip);
 		$(item).find('img').attr('style', clip)
 	})
 
@@ -71,23 +72,23 @@ jQuery( document ).ready( function( $ ) {
 	});
 });
 
-const generateRandomClipPathRules = function() {
-	let str = [];
-	const hulls = makeHull(generateRandomPoints());
-	for (let i = 0; i < hulls.length; i++) {
-		const h = hulls[i];
-		str.push(`${h.x}% ${h.y}%`)
+function generateRandomClipPathRules() {
+	var str = [];
+	var hulls = makeHull(generateRandomPoints());
+	for (var i = 0; i < hulls.length; i++) {
+		var h = hulls[i];
+		str.push(h.x + '%' + h.y + '%')
 	}
-	let clip = `-webkit-clip-path: polygon(${str.join(',')});
-				clip-path:         polygon(${str.join(',')});`;
+	var clip = '-webkit-clip-path: polygon(' + str.join(',') + ');' +
+				'clip-path: polygon(' +str.join(',') +');';
 
 	return clip;
 }
 
 // Generate random number of random 2d coordinates
-const generateRandomPoints = function() {
-	const numPoints = Math.round(Math.pow(30, Math.random()) * 6);
-	const points = [];
+function generateRandomPoints() {
+	var numPoints = Math.round(Math.pow(30, Math.random()) * 6);
+	var points = [];
 	for (var i = 0; i < numPoints; i++) {
 		points.push({
 			x: getRandomInt(0, 100),
@@ -103,7 +104,7 @@ const generateRandomPoints = function() {
 
 // Algorithm from https://www.nayuki.io/page/convex-hull-algorithm
 // Returns the convex hull, assuming that each points[i] <= points[i + 1]. Runs in O(n) time.
-const makeHull = function(points) {
+function makeHull(points) {
 	points.sort(POINT_COMPARATOR);
 	if (points.length <= 1) {
 		return points.slice();
@@ -145,7 +146,7 @@ const makeHull = function(points) {
 		return upperHull.concat(lowerHull);
 };
 
-const POINT_COMPARATOR = function(a, b) {
+function POINT_COMPARATOR(a, b) {
 	if (a.x < b.x)
 		return -1;
 	else if (a.x > b.x)
@@ -158,6 +159,6 @@ const POINT_COMPARATOR = function(a, b) {
 		return 0;
 };
 
-const getRandomInt = function(min, max) {
+function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
