@@ -7,14 +7,20 @@ This theme use sass (source in [assets/css](./assets/css))
 
 
 #### Install deps
-> npm install
+```console
+npm install
+```
 
 #### CSS:
-> # Compil once
-> npm run css
-> # Watch change
-> npm run watch
+```console
+# Compil once
+npm run css
+# Watch change
+npm run watch
+```
 
 #### JS:
-> # Minify
-> gulp compress
+```console
+# Minify
+gulp compress
+```
