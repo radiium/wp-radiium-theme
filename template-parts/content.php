@@ -20,62 +20,78 @@ function radiium_get_post_gallery_count() {
     $gallery = get_post_gallery(0, false);
     return count($gallery['src']);
 }
+
+$userAgentClass = '';
+        if (wp_is_mobile()) {
+            $userAgentClass = 'mobile';
+        } else {
+            $userAgentClass = 'desktop';
+        }
 ?>
 
 <div class="postsGridWrapper">
 
+    <!-- Filters/Sorts Controls -->
     <div class="postControls">
-        <div class="postFilters">
+        <div class="postFiltersContainer">
             <div class="postControlsLabel">Filter :</div>
-            <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
 
-            <?php foreach (get_categories() as $cat) { ?>
-                <input class="postFilterBtn postBtn" type="button" value="<?php echo $cat->name ?>" data-filter="<?php echo $cat->name ?>"></button>
-            <?php } ?>
+            <div class="postControlsItems">
+                <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
+
+                <?php foreach (get_categories() as $cat) { ?>
+                    <input class="postFilterBtn postBtn" type="button" value="<?php echo $cat->name ?>" data-filter="<?php echo $cat->name ?>"></button>
+                <?php } ?>
+            </div>
         </div>
 
-        <div class="postSorters">
+        <div class="postSortersContainer">
             <div class="postControlsLabel">sort :</div>
-            <input class="postShuffleBtn postBtn" type="button" value="Shuffle"></button>
-            <input class="postReverseBtn postBtn" type="button" value="Reverse"></button>
+            <div class="postControlsItems">
+                <input class="postShuffleBtn postBtn" type="button" value="Shuffle"></button>
+                <input class="postReverseBtn postBtn" type="button" value="Reverse"></button>
+            </div>
         </div>
     </div>
 
 
-    <div class="postsGrid">
-        <div class="sizer"></div>
+    <style>
 
-        <?php while ( have_posts()) : the_post(); ?>
+    </style>
 
-            <figure class="postItem" data-groups='[<?php echo radiium_get_post_categories() ?>]'>
-                    <a class="postItemLink" href="<?php the_permalink() ?>" title="<?php the_title() ?>">
-                    <div class="postItemThumb">
-                        <?php
-                        $thumb = has_post_thumbnail() ? the_post_thumbnail( 'large' ) : '<div class="postItemThumbReplace"></div>';
-                        echo $thumb;
-                        ?>
-                            <div class="overlay absoluteHW flexCol"></div>
-                            <div class="postInfos absoluteHW flexCol">
-                                <div class="postTitle"><?php the_title() ?></div>
-                                <div class="postCount">
-                                    <?php
-                                    $count = radiium_get_post_gallery_count();
-                                    if ($count > 1) {
-                                        echo $count.' items';
-                                    } else {
-                                        echo $count.' item';
-                                    } ?>
-                                </div>
-                            </div>
+    <!-- Posts grid -->
+    <div class="postsList">
+    <?php while ( have_posts()) : the_post(); ?>
 
 
-                        </div>
-                    </a>
-                        <!--
-                        <figcaption><?php the_title() ?></figcaption>
-                        -->
-                    </figure>
-        <?php endwhile; ?>
+        <!-- Post item -->
+        <figure class="postsListItem hidenItem" data-groups='[<?php echo radiium_get_post_categories() ?>]'>
+        <a class="postItemLink" href="<?php the_permalink() ?>" title="<?php the_title() ?>">
 
+            <div class="thumb">
+            <?php
+            $thumb = has_post_thumbnail() ? the_post_thumbnail( 'large' ) : '<div class="postItemThumbReplace"></div>';
+            echo $thumb;
+            ?>
+            </div>
+
+            <div class="postInfos <?php echo $userAgentClass?>">
+                <span class="postTitle"><?php the_title() ?></span>
+                <span>&nbsp; - &nbsp;</span>
+                <span class="postCount">
+                    <?php
+                    $count = radiium_get_post_gallery_count();
+                    if ($count > 1) {
+                        echo $count.' items';
+                    } else {
+                        echo $count.' item';
+                    } ?>
+                </span>
+            </div>
+            </a>
+        </figure>
+
+    <?php endwhile; ?>
     </div>
+
 </div>

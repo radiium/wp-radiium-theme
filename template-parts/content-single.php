@@ -1,21 +1,21 @@
-
-
 <div id="post-<?php the_ID(); ?>" class="singlePostWrapper">
     <div class="singlePostContainer">
 
         <!-- Gallery infos -->
-        <div class="singlePostInfos">
-            <div class="singlePostInfosHeader flexRow">
-                <div class="returnBtn">
-                    <a class="footerHomeLink" href="<?php echo esc_url( home_url() ); ?>">
-                    <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/arrow_return.png" alt="">
-                    </a>
-                </div>
-                <div class="title flexSpacer"><?php the_title_attribute(); ?></div>
+        <div class="singlePostInfos flexCol">
+
+            <!-- Return to home button -->
+            <div class="returnBtn singlePostInfosItem" title="Return">
+                <a class="" href="<?php echo esc_url( home_url() ); ?>">
+                <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/arrow_return.png" alt="">
+                </a>
             </div>
 
+            <!-- Post Title -->
+            <div class="singlePostInfosTitle singlePostInfosItem"><?php the_title_attribute(); ?></div>
+
             <!-- Post text -->
-            <div class="singlePostInfosText">
+            <div class="singlePostInfosText singlePostInfosItem">
                 <?php
                 add_filter('the_content', 'remove_shortcode_from');
                 the_content();
@@ -29,23 +29,6 @@
         echo get_post_gallery();
         ?>
 
-    </div>
-
-    <!-- Scroll control -->
-    <div class="controlWrapper">
-        <div class="prevBtn postNavBtn flexRow">
-            <img class="prevBtnIco" src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/arrow_left.png" alt="">
-            <!--
-                <span class="prevBtnText">Prev</span>
-            -->
-        </div>
-
-        <div class="nextBtn postNavBtn flexRow">
-            <!--
-                <span class="nextBtnText">Next</span>
-            -->
-            <img class="nextBtnIco" src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/arrow_right.png" alt="">
-        </div>
     </div>
 </div>
 

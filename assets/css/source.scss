@@ -14,7 +14,6 @@
     Tags: portfolio
 
 
-
     Summary:
     --------
 
@@ -209,12 +208,13 @@
 	justify-content: space-evenly;
     align-items: center;
     opacity: 0.5;
+}
 
-    .footerHomeLink {
-        margin-left: 6px;
-        &:hover {
-            text-decoration: underline !important
-        }
+.footerHomeLink {
+    margin-left: 6px;
+
+    &:hover {
+        text-decoration: underline !important
     }
 }
 
@@ -234,14 +234,14 @@
         margin-bottom: 30px;
         display: flex;
 
-        .postFilters {
+        .postFiltersContainer {
             margin-right: 40px;
         }
 
-        .postFilters,
-        .postSorters {
+        .postFiltersContainer,
+        .postSortersContainer {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         .postControlsLabel {
@@ -249,6 +249,7 @@
             padding: 5px;
             white-space: nowrap;
         }
+        // .postControlsItems {}
 
         .postBtn {
             font-size: 1rem;
@@ -266,106 +267,68 @@
         }
     }
 
-    .postsGrid {
-        width: 100%;
-        margin: 0 auto;
+    .postsList {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
 
-        .sizer {
-            // width: 8.33333%;
-            width: 10px;
-        }
+        .postsListItem {
+            align-self: flex-start;
+            margin: 10px;
+            @include transition(all ease-in-out .4s);
 
-        .postItem {
-            position: relative;
-            float: left;
-            min-height: 1px;
-            width: 23%;
-            margin: 5px 5px 5px 5px;
-            overflow: hidden;
+            &.hidenItem {
+                opacity: 0 !important;
+                transform: scale(0) !important;
+            }
 
             .postItemLink {
+                display: flex;
                 position: relative;
-                width: 100%;
-                height: 0;
-                padding-bottom: 100%;
-                overflow: hidden;
+                flex-direction: column;
 
-                .postItemThumb {
-                    width: 100%;
-                    height: 100%;
+                &:hover {
+                    .thumb {
+                        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.4));
+                    }
 
-                    img {
-                        display: block;
-                        width: 100%;
-                        max-width: none;
+                    .postInfos {
+                        &.desktop {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .thumb {
+                    height: 150px;
+                    width: 350px;
+                    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
+                    @include transition(all ease-in-out .1s);
+
+                    img{
                         height: 100%;
+                        width: 100%;
                         object-fit: cover;
                     }
                 }
 
-                &:hover {
-                    img {
-                        @include transform(scale(1.05));
-                    }
-                    .overlay {
-                        background-color: rgba(0, 0, 0, 0.6);
-                    }
-                    .postInfos {
-                        @include transform(scale(1.1) translateY(0));
-                    }
-                }
-            }
-
-            .postItemThumb {
-                width: 100%;
-                min-width: 100%;
-                height: 100%;
-                position: relative;
-                background-color: lightgray;
-                img {
-                    width: 100%;
-                    height:100%;
-                    object-fit: cover;
-                    object-position: center;
-                    @include transition(all ease-in-out .4s);
-                }
-
-                .overlay {
-                    background-color: rgba(0, 0, 0, 0.1);
-                    @include transition(all ease-out .3s);
-                }
-
                 .postInfos {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-weight: bold;
-                    color: white;
+                    width: 100%;
+                    font-size: 1.2em;
                     text-align: center;
-                    padding: 20px;
-                    @include transition(all ease-out .3s);
-                    @include transform(scale(1));
-                    text-shadow: rgb(0, 0, 0) 1px 0px 0px,
-                                 rgb(0, 0, 0) 0.540302px 0.841471px 0px,
-                                 rgb(0, 0, 0) -0.416147px 0.909297px 0px,
-                                 rgb(0, 0, 0) -0.989992px 0.14112px 0px,
-                                 rgb(0, 0, 0) -0.653644px -0.756802px 0px,
-                                 rgb(0, 0, 0) 0.283662px -0.958924px 0px,
-                                 rgb(0, 0, 0) 0.96017px -0.279415px 0px;
+                    margin: 10px 0 15px 0;
+                    @include transition(all ease-in-out .1s);
+
+                    &.desktop {
+                        opacity: 0;
+                    }
 
                     .postTitle {
-                        font-size: 2em;
-
+                        font-weight: bold;
                     }
-
-                    .postCount {
-                        font-size: 1.5em;
-                        opacity: 0.8;
-                    }
-
+                    // .postCount {}
                 }
             }
-            // .postItemThumbReplace { }
         }
     }
 }
@@ -382,114 +345,81 @@
 	margin: 0;
   	padding: 0;
     overflow: hidden;
-    padding-bottom: 30px;
-    position: relative;
-
-    .controlWrapper {
-        position: absolute;
-        height: 30px;
-        left: 0;
-        right: 0;
-
-        img { height: 30px; }
-
-
-        .postNavBtn {
-            position: absolute;
-            align-items: center;
-            cursor: pointer;
-            @include transition(all ease-in-out 200ms);
-            font-weight: bold;
-        }
-
-        .prevBtn {
-            left: 25px;
-            &:hover { left: 20px; }
-        }
-
-        .nextBtn {
-            right: 25px;
-            &:hover { right: 20px; }
-        }
-    }
-
 
     .singlePostContainer {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        height: 100%;
-        width: auto;
-        margin-right: 20px;
-        overflow-x: auto;
-        overflow-y: hidden;
 
         .singlePostInfos {
-            width: 350px;
-            min-width: 350px;
+            width: 40%;
             padding: 20px;
 
-            .singlePostInfosHeader {
-                margin-bottom: 20px;
+            .singlePostInfosItem {
+                margin-bottom: 10px;
+            }
 
-                .returnBtn {
+            .returnBtn {
+                margin-top: 10px;
+                margin-bottom: 30px;
+                margin-left: 0;
+                @include transition(all ease-in-out 200ms);
+
+                &:hover  {
                     margin-left: 5px;
-                    margin-right: 15px;
-                    @include transition(all ease-in-out 200ms);
-
-                    &:hover {
-                        margin-left: 0;
-                        margin-right: 20px;
-                    }
-
-                    img {
-                        height: 2em;
-                        min-width: 44px;
-                    }
                 }
 
-                .title {
-                    font-size: 2em;
-                    font-weight: bold;
-                    margin-top: -10px;
+                img {
+                    height: 2em;
+                    min-width: 44px;
                 }
+            }
+
+            .singlePostInfosTitle {
+                font-size: 1.8em;
+                font-weight: bold;
+                margin-top: -10px;
+                margin-bottom: 20px;
             }
         }
 
-        .postContent {
+        .singlePostContent {
             height: 100%;
+            width: 60%;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             flex-wrap: nowrap;
+            align-items: center;
+            overflow: auto;
 
             .galItem {
-                box-sizing: border-box;
-                height: calc(100% - 60px);
-                flex: 0 0 auto;
-                margin: 30px 40px;
-                position: relative;
-                overflow: hidden;
+                padding: 20px;
+                max-width: 370px;
                 cursor: pointer;
 
+                &:hover {
+                    text-decoration: underline;
+                }
+
                 .galItemThumb {
-                    height: 100%;
+                    width: 100%;
 
                     img {
-                        height: 100%;
-                        width: auto;
-                        display: block;
+                        height: auto;
+                        width: 100%;
                     }
                 }
 
                 .galItemInfos {
-                    display: none;
                     background-color: white;
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
                     font-weight: bold;
-                    padding: 15px;
+                    padding: 10px;
                 }
             }
         }
@@ -809,6 +739,11 @@
     display: flex;
     width: auto;
 
+    &.headerAccountBtnBox {
+        position: absolute;
+        bottom: 50px;
+    }
+
     &.mini {
         margin-left: 20px;
         height: 20px;
@@ -882,68 +817,56 @@
 	// .postsGrid { margin: 10px; }
     */
 
+    // CONTENT
     .postsGridWrapper {
         width: calc(100% - 30px);
         margin: 15px;
 
         .postControls {
             flex-direction: column;
-            .postSorters {
+            .postSortersContainer {
                 margin-top: 10px;
             }
         }
-        .postsGrid {
-            .postItem {
-                width: 100%;
+
+        .postsList {
+            .postsListItem {
+                .postItemLink {
+                    .thumb {
+                        height: 150px;
+                        width: 300px;
+                    }
+                    .postInfos {
+                        opacity: 1;
+                    }
+                    &:hover {
+                        transform: none;
+                        .thumb {
+                            filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3));
+                        }
+                    }
+                }
             }
         }
     }
 
+    // SINGLE POST
     .singlePostWrapper {
-        padding-bottom: 0;
-
-        .controlWrapper {
-            display: none;
-        }
-
+        height: auto;
         .singlePostContainer {
-            overflow-x: hidden;
-            overflow-y: auto;
+            overflow: auto;
             flex-direction: column;
-            width: 100%;
-
             .singlePostInfos {
                 width: 100%;
-                min-width: 100%;
-                padding: 60px 10px;
+                .returnBtn {
+                    display: none;
+                }
             }
             .singlePostContent {
-                flex-direction: column;
-
+                width: 100%;
+                overflow: hidden;
                 .galItem {
-                    height: auto;
-                    margin: 0 10px 20px 10px;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-
-                    .galItemThumb {
-                        height: auto;
-                        width: 100%;
-
-                        img {
-                            height: auto;
-                            width: 100%;
-                            display: block;
-                        }
-                    }
-                }
-
-                .galItemInfos {
-                    display: block !important;
-                    position: unset !important;
-                    padding: 10px 15px 30px 15px !important;
+                    max-width: 100% !important;
                 }
             }
         }
@@ -975,6 +898,7 @@
 
     .footer {
         font-size: 0.68rem;
+        display: none !important;
     }
 }
 
@@ -996,29 +920,40 @@
         .menuMobil { display: flex; }
     }
 
-    // POST
-    /*
-	.postInfos {
-        width: 290px;
-        min-width: 290px;
-    }
-    */
-
+    // CONTENT
     .postsGridWrapper {
         width: calc(100% - 30px);
         margin: 15px;
 
         .postControls {
             flex-direction: column;
-            .postSorters {
+            .postSortersContainer {
                 margin-top: 10px;
             }
         }
-        .postsGrid {
-            .postItem {
-                width: 45%;
+    }
+
+    // SINGLE POST
+    .singlePostWrapper {
+        height: auto;
+        .singlePostContainer {
+            overflow: auto;
+            flex-direction: column;
+            .singlePostInfos {
+                width: 100%;
+                .returnBtn {
+                    display: none;
+                }
+            }
+            .singlePostContent {
+                width: 100%;
+                overflow: hidden;
             }
         }
+    }
+
+    .footer {
+        display: none !important;
     }
 }
 
@@ -1026,12 +961,6 @@
     .postsGridWrapper {
         width: calc(100% - 30px);
         margin: 15px;
-
-        .postsGrid {
-            .postItem {
-                width: 31%;
-            }
-        }
     }
 }
 

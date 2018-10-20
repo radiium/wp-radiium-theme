@@ -13,7 +13,6 @@
     Tags: portfolio
 
 
-
     Summary:
     --------
 
@@ -47,7 +46,7 @@
 /* The code below has been extracted from the following projects: - https://github.com/murtaugh/HTML5-Reset - http://meyerweb.com - http://html5doctor.com - http://html5boilerplate.com … and then cleaned up a lot. */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, code, em, img, small, strong, sub, sup, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td, article, aside, footer, header, nav, section, time, audio, video { padding: 0; border: 0; margin: 0; background: transparent; font-size: 100%; font-weight: inherit; vertical-align: baseline; }
 
-article, aside, figure, footer, header, nav, section { display: block; }
+article, aside, figure, footer, header, nav, section { display: block; margin: 0; padding: 0; }
 
 html { box-sizing: border-box; overflow-y: scroll; }
 
@@ -136,9 +135,9 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 *******************************************/
 .footer { height: 20px; min-height: 20px; max-height: 20px; font-size: 0.8rem; overflow: hidden; justify-content: space-evenly; align-items: center; opacity: 0.5; }
 
-.footer .footerHomeLink { margin-left: 6px; }
+.footerHomeLink { margin-left: 6px; }
 
-.footer .footerHomeLink:hover { text-decoration: underline !important; }
+.footerHomeLink:hover { text-decoration: underline !important; }
 
 /*******************************************
 /*
@@ -149,9 +148,9 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .postsGridWrapper .postControls { margin-bottom: 30px; display: flex; }
 
-.postsGridWrapper .postControls .postFilters { margin-right: 40px; }
+.postsGridWrapper .postControls .postFiltersContainer { margin-right: 40px; }
 
-.postsGridWrapper .postControls .postFilters, .postsGridWrapper .postControls .postSorters { display: flex; flex-wrap: wrap; }
+.postsGridWrapper .postControls .postFiltersContainer, .postsGridWrapper .postControls .postSortersContainer { display: flex; flex-wrap: nowrap; }
 
 .postsGridWrapper .postControls .postControlsLabel { color: gray; padding: 5px; white-space: nowrap; }
 
@@ -159,80 +158,60 @@ button::-moz-focus-inner { padding: 0; border: 0; }
 
 .postsGridWrapper .postControls .postBtn:active, .postsGridWrapper .postControls .postBtn.activ { color: white; background-color: black; }
 
-.postsGridWrapper .postsGrid { width: 100%; margin: 0 auto; }
+.postsGridWrapper .postsList { display: flex; flex-direction: column; align-content: flex-start; }
 
-.postsGridWrapper .postsGrid .sizer { width: 10px; }
+.postsGridWrapper .postsList .postsListItem { align-self: flex-start; margin: 10px; -webkit-transition: all ease-in-out 0.4s; -moz-transition: all ease-in-out 0.4s; -ms-transition: all ease-in-out 0.4s; -o-transition: all ease-in-out 0.4s; transition: all ease-in-out 0.4s; }
 
-.postsGridWrapper .postsGrid .postItem { position: relative; float: left; min-height: 1px; width: 23%; margin: 5px 5px 5px 5px; overflow: hidden; }
+.postsGridWrapper .postsList .postsListItem.hidenItem { opacity: 0 !important; transform: scale(0) !important; }
 
-.postsGridWrapper .postsGrid .postItem .postItemLink { position: relative; width: 100%; height: 0; padding-bottom: 100%; overflow: hidden; }
+.postsGridWrapper .postsList .postsListItem .postItemLink { display: flex; position: relative; flex-direction: column; }
 
-.postsGridWrapper .postsGrid .postItem .postItemLink .postItemThumb { width: 100%; height: 100%; }
+.postsGridWrapper .postsList .postsListItem .postItemLink:hover .thumb { filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.4)); }
 
-.postsGridWrapper .postsGrid .postItem .postItemLink .postItemThumb img { display: block; width: 100%; max-width: none; height: 100%; object-fit: cover; }
+.postsGridWrapper .postsList .postsListItem .postItemLink:hover .postInfos.desktop { opacity: 1; }
 
-.postsGridWrapper .postsGrid .postItem .postItemLink:hover img { -webkit-transform: scale(1.05); -moz-transform: scale(1.05); -ms-transform: scale(1.05); -o-transform: scale(1.05); transform: scale(1.05); }
+.postsGridWrapper .postsList .postsListItem .postItemLink .thumb { height: 150px; width: 350px; filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2)); -webkit-transition: all ease-in-out 0.1s; -moz-transition: all ease-in-out 0.1s; -ms-transition: all ease-in-out 0.1s; -o-transition: all ease-in-out 0.1s; transition: all ease-in-out 0.1s; }
 
-.postsGridWrapper .postsGrid .postItem .postItemLink:hover .overlay { background-color: rgba(0, 0, 0, 0.6); }
+.postsGridWrapper .postsList .postsListItem .postItemLink .thumb img { height: 100%; width: 100%; object-fit: cover; }
 
-.postsGridWrapper .postsGrid .postItem .postItemLink:hover .postInfos { -webkit-transform: scale(1.1) translateY(0); -moz-transform: scale(1.1) translateY(0); -ms-transform: scale(1.1) translateY(0); -o-transform: scale(1.1) translateY(0); transform: scale(1.1) translateY(0); }
+.postsGridWrapper .postsList .postsListItem .postItemLink .postInfos { width: 100%; font-size: 1.2em; text-align: center; margin: 10px 0 15px 0; -webkit-transition: all ease-in-out 0.1s; -moz-transition: all ease-in-out 0.1s; -ms-transition: all ease-in-out 0.1s; -o-transition: all ease-in-out 0.1s; transition: all ease-in-out 0.1s; }
 
-.postsGridWrapper .postsGrid .postItem .postItemThumb { width: 100%; min-width: 100%; height: 100%; position: relative; background-color: lightgray; }
+.postsGridWrapper .postsList .postsListItem .postItemLink .postInfos.desktop { opacity: 0; }
 
-.postsGridWrapper .postsGrid .postItem .postItemThumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; -webkit-transition: all ease-in-out 0.4s; -moz-transition: all ease-in-out 0.4s; -ms-transition: all ease-in-out 0.4s; -o-transition: all ease-in-out 0.4s; transition: all ease-in-out 0.4s; }
-
-.postsGridWrapper .postsGrid .postItem .postItemThumb .overlay { background-color: rgba(0, 0, 0, 0.1); -webkit-transition: all ease-out 0.3s; -moz-transition: all ease-out 0.3s; -ms-transition: all ease-out 0.3s; -o-transition: all ease-out 0.3s; transition: all ease-out 0.3s; }
-
-.postsGridWrapper .postsGrid .postItem .postItemThumb .postInfos { display: flex; justify-content: center; align-items: center; font-weight: bold; color: white; text-align: center; padding: 20px; -webkit-transition: all ease-out 0.3s; -moz-transition: all ease-out 0.3s; -ms-transition: all ease-out 0.3s; -o-transition: all ease-out 0.3s; transition: all ease-out 0.3s; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); text-shadow: black 1px 0px 0px, black 0.5403px 0.84147px 0px, black -0.41615px 0.9093px 0px, black -0.98999px 0.14112px 0px, black -0.65364px -0.7568px 0px, black 0.28366px -0.95892px 0px, black 0.96017px -0.27942px 0px; }
-
-.postsGridWrapper .postsGrid .postItem .postItemThumb .postInfos .postTitle { font-size: 2em; }
-
-.postsGridWrapper .postsGrid .postItem .postItemThumb .postInfos .postCount { font-size: 1.5em; opacity: 0.8; }
+.postsGridWrapper .postsList .postsListItem .postItemLink .postInfos .postTitle { font-weight: bold; }
 
 /*******************************************
 /*
 /*  7.	SINGLE ARTICLE PAGE
 /*
 *******************************************/
-.singlePostWrapper { height: 100%; width: 100%; margin: 0; padding: 0; overflow: hidden; padding-bottom: 30px; position: relative; }
+.singlePostWrapper { height: 100%; width: 100%; margin: 0; padding: 0; overflow: hidden; }
 
-.singlePostWrapper .controlWrapper { position: absolute; height: 30px; left: 0; right: 0; }
+.singlePostWrapper .singlePostContainer { height: 100%; width: 100%; margin: 0; padding: 0; overflow: hidden; display: flex; flex-direction: row; flex-wrap: nowrap; }
 
-.singlePostWrapper .controlWrapper img { height: 30px; }
+.singlePostWrapper .singlePostContainer .singlePostInfos { width: 40%; padding: 20px; }
 
-.singlePostWrapper .controlWrapper .postNavBtn { position: absolute; align-items: center; cursor: pointer; -webkit-transition: all ease-in-out 200ms; -moz-transition: all ease-in-out 200ms; -ms-transition: all ease-in-out 200ms; -o-transition: all ease-in-out 200ms; transition: all ease-in-out 200ms; font-weight: bold; }
+.singlePostWrapper .singlePostContainer .singlePostInfos .singlePostInfosItem { margin-bottom: 10px; }
 
-.singlePostWrapper .controlWrapper .prevBtn { left: 25px; }
+.singlePostWrapper .singlePostContainer .singlePostInfos .returnBtn { margin-top: 10px; margin-bottom: 30px; margin-left: 0; -webkit-transition: all ease-in-out 200ms; -moz-transition: all ease-in-out 200ms; -ms-transition: all ease-in-out 200ms; -o-transition: all ease-in-out 200ms; transition: all ease-in-out 200ms; }
 
-.singlePostWrapper .controlWrapper .prevBtn:hover { left: 20px; }
+.singlePostWrapper .singlePostContainer .singlePostInfos .returnBtn:hover { margin-left: 5px; }
 
-.singlePostWrapper .controlWrapper .nextBtn { right: 25px; }
+.singlePostWrapper .singlePostContainer .singlePostInfos .returnBtn img { height: 2em; min-width: 44px; }
 
-.singlePostWrapper .controlWrapper .nextBtn:hover { right: 20px; }
+.singlePostWrapper .singlePostContainer .singlePostInfos .singlePostInfosTitle { font-size: 1.8em; font-weight: bold; margin-top: -10px; margin-bottom: 20px; }
 
-.singlePostWrapper .singlePostContainer { display: flex; flex-direction: row; flex-wrap: nowrap; height: 100%; width: auto; margin-right: 20px; overflow-x: auto; overflow-y: hidden; }
+.singlePostWrapper .singlePostContainer .singlePostContent { height: 100%; width: 60%; display: flex; flex-direction: column; flex-wrap: nowrap; align-items: center; overflow: auto; }
 
-.singlePostWrapper .singlePostContainer .singlePostInfos { width: 350px; min-width: 350px; padding: 20px; }
+.singlePostWrapper .singlePostContainer .singlePostContent .galItem { padding: 20px; max-width: 370px; cursor: pointer; }
 
-.singlePostWrapper .singlePostContainer .singlePostInfos .singlePostInfosHeader { margin-bottom: 20px; }
+.singlePostWrapper .singlePostContainer .singlePostContent .galItem:hover { text-decoration: underline; }
 
-.singlePostWrapper .singlePostContainer .singlePostInfos .singlePostInfosHeader .returnBtn { margin-left: 5px; margin-right: 15px; -webkit-transition: all ease-in-out 200ms; -moz-transition: all ease-in-out 200ms; -ms-transition: all ease-in-out 200ms; -o-transition: all ease-in-out 200ms; transition: all ease-in-out 200ms; }
+.singlePostWrapper .singlePostContainer .singlePostContent .galItem .galItemThumb { width: 100%; }
 
-.singlePostWrapper .singlePostContainer .singlePostInfos .singlePostInfosHeader .returnBtn:hover { margin-left: 0; margin-right: 20px; }
+.singlePostWrapper .singlePostContainer .singlePostContent .galItem .galItemThumb img { height: auto; width: 100%; }
 
-.singlePostWrapper .singlePostContainer .singlePostInfos .singlePostInfosHeader .returnBtn img { height: 2em; min-width: 44px; }
-
-.singlePostWrapper .singlePostContainer .singlePostInfos .singlePostInfosHeader .title { font-size: 2em; font-weight: bold; margin-top: -10px; }
-
-.singlePostWrapper .singlePostContainer .postContent { height: 100%; display: flex; flex-direction: row; flex-wrap: nowrap; }
-
-.singlePostWrapper .singlePostContainer .postContent .galItem { box-sizing: border-box; height: calc(100% - 60px); flex: 0 0 auto; margin: 30px 40px; position: relative; overflow: hidden; cursor: pointer; }
-
-.singlePostWrapper .singlePostContainer .postContent .galItem .galItemThumb { height: 100%; }
-
-.singlePostWrapper .singlePostContainer .postContent .galItem .galItemThumb img { height: 100%; width: auto; display: block; }
-
-.singlePostWrapper .singlePostContainer .postContent .galItem .galItemInfos { display: none; background-color: white; position: absolute; left: 0; right: 0; bottom: 0; font-weight: bold; padding: 15px; }
+.singlePostWrapper .singlePostContainer .singlePostContent .galItem .galItemInfos { background-color: white; font-weight: bold; padding: 10px; }
 
 /*******************************************
 /*
@@ -377,6 +356,8 @@ body { -webkit-animation: bugfix infinite 1s; }
 *******************************************/
 .accountBtnBox { display: flex; width: auto; }
 
+.accountBtnBox.headerAccountBtnBox { position: absolute; bottom: 50px; }
+
 .accountBtnBox.mini { margin-left: 20px; height: 20px; }
 
 .accountBtnBox.mini .accountBtn { align-self: center; height: 16px; }
@@ -403,38 +384,40 @@ body { -webkit-animation: bugfix infinite 1s; }
   /* CONTENT .postItemThumb { .postInfos { .postTitle { // font-size: 2em; } .postCount { // font-size: 1.5em; } } } // .postsGrid { margin: 10px; } */
   .postsGridWrapper { width: calc(100% - 30px); margin: 15px; }
   .postsGridWrapper .postControls { flex-direction: column; }
-  .postsGridWrapper .postControls .postSorters { margin-top: 10px; }
-  .postsGridWrapper .postsGrid .postItem { width: 100%; }
-  .singlePostWrapper { padding-bottom: 0; }
-  .singlePostWrapper .controlWrapper { display: none; }
-  .singlePostWrapper .singlePostContainer { overflow-x: hidden; overflow-y: auto; flex-direction: column; width: 100%; }
-  .singlePostWrapper .singlePostContainer .singlePostInfos { width: 100%; min-width: 100%; padding: 60px 10px; }
-  .singlePostWrapper .singlePostContainer .singlePostContent { flex-direction: column; }
-  .singlePostWrapper .singlePostContainer .singlePostContent .galItem { height: auto; margin: 0 10px 20px 10px; }
-  .singlePostWrapper .singlePostContainer .singlePostContent .galItem:hover { text-decoration: underline; }
-  .singlePostWrapper .singlePostContainer .singlePostContent .galItem .galItemThumb { height: auto; width: 100%; }
-  .singlePostWrapper .singlePostContainer .singlePostContent .galItem .galItemThumb img { height: auto; width: 100%; display: block; }
-  .singlePostWrapper .singlePostContainer .singlePostContent .galItemInfos { display: block !important; position: unset !important; padding: 10px 15px 30px 15px !important; }
+  .postsGridWrapper .postControls .postSortersContainer { margin-top: 10px; }
+  .postsGridWrapper .postsList .postsListItem .postItemLink .thumb { height: 150px; width: 300px; }
+  .postsGridWrapper .postsList .postsListItem .postItemLink .postInfos { opacity: 1; }
+  .postsGridWrapper .postsList .postsListItem .postItemLink:hover { transform: none; }
+  .postsGridWrapper .postsList .postsListItem .postItemLink:hover .thumb { filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.3)); }
+  .singlePostWrapper { height: auto; }
+  .singlePostWrapper .singlePostContainer { overflow: auto; flex-direction: column; }
+  .singlePostWrapper .singlePostContainer .singlePostInfos { width: 100%; }
+  .singlePostWrapper .singlePostContainer .singlePostInfos .returnBtn { display: none; }
+  .singlePostWrapper .singlePostContainer .singlePostContent { width: 100%; overflow: hidden; }
+  .singlePostWrapper .singlePostContainer .singlePostContent .galItem { max-width: 100% !important; }
   .aboutBlock { display: flex !important; flex-direction: column !important; flex-wrap: nowrap !important; }
   .aboutBlock .thumb { margin-left: auto; margin-right: auto !important; margin-bottom: 30px; }
   .aboutBlock .tabMenu { align-self: center; }
   .aboutBlock .tabMenuItem { margin: 5px !important; }
   .aboutBlock .tabContent { padding: 10px; text-align: center; }
-  .footer { font-size: 0.68rem; } }
+  .footer { font-size: 0.68rem; display: none !important; } }
 
 @media screen and (min-width: 480px) and (max-width: 768px) { .wrapper { padding-top: 75px; height: calc(100% - 20px); }
   .headerWrapper .header { height: 75px; max-height: 75px; }
   .headerWrapper .header .menuDesktop { display: none; }
   .headerWrapper .header .menuMobilBtn { display: block; }
   .headerWrapper .menuMobil { display: flex; }
-  /* .postInfos { width: 290px; min-width: 290px; } */
   .postsGridWrapper { width: calc(100% - 30px); margin: 15px; }
   .postsGridWrapper .postControls { flex-direction: column; }
-  .postsGridWrapper .postControls .postSorters { margin-top: 10px; }
-  .postsGridWrapper .postsGrid .postItem { width: 45%; } }
+  .postsGridWrapper .postControls .postSortersContainer { margin-top: 10px; }
+  .singlePostWrapper { height: auto; }
+  .singlePostWrapper .singlePostContainer { overflow: auto; flex-direction: column; }
+  .singlePostWrapper .singlePostContainer .singlePostInfos { width: 100%; }
+  .singlePostWrapper .singlePostContainer .singlePostInfos .returnBtn { display: none; }
+  .singlePostWrapper .singlePostContainer .singlePostContent { width: 100%; overflow: hidden; }
+  .footer { display: none !important; } }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) { .postsGridWrapper { width: calc(100% - 30px); margin: 15px; }
-  .postsGridWrapper .postsGrid .postItem { width: 31%; } }
+@media screen and (min-width: 768px) and (max-width: 1024px) { .postsGridWrapper { width: calc(100% - 30px); margin: 15px; } }
 
 /*******************************************
 /*

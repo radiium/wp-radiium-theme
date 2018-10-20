@@ -11,8 +11,6 @@ jQuery( document ).ready( function( $ ) {
 		if ($(this).width() >= 768) {
 			$('.menuMobilBtn').removeClass('rotated');
 			$('.menuMobil').removeClass('opened');
-
-			$('.galItemInfos').css('display', 'none');
 		}
 	});
 
