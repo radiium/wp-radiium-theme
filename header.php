@@ -64,7 +64,7 @@
 				</a>
 
 				<a class="accountBtn" target="_blank" href="https://www.facebook.com/Rémi-Rémi-135772170533399/" title="Link to facebook!">
-				<img src="<?php echo get_site_url() ?>/wp-content/uploads/assets/fache-logo.svg'" alt="">
+				<img src="<?php echo get_site_url() ?>/wp-content/uploads/assets/fache-logo.svg" alt="">
 				</a>
 
 				<a class="accountBtn gith" target="_blank" href="https://www.github.com/radiium/" title="Link to github!">
