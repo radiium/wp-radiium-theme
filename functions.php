@@ -41,7 +41,7 @@ if ( ! function_exists( 'radiium_scripts' ) ) {
         // Load Shufflejs script
         if( is_front_page() ) {
             wp_enqueue_script( 'shuffle-js', get_template_directory_uri() . '/assets/libs/shuffle.min.js' );
-            wp_enqueue_script( 'radiium-content', get_template_directory_uri() . '/assets/js/radiium.content.min.js', array('jquery') );
+            wp_enqueue_script( 'radiium-content', get_template_directory_uri() . '/assets/scripts/radiium.content.min.js', array('jquery') );
         }
 
         // Load Photoswipe scripts and default styles only on single post
@@ -50,7 +50,7 @@ if ( ! function_exists( 'radiium_scripts' ) ) {
             wp_enqueue_style( 'photoswipe-default-skin-css', get_template_directory_uri() . '/assets/libs/PhotoSwipe-4.1.2/default-skin/default-skin.css' );
             wp_enqueue_script( 'photoswipe-js', get_template_directory_uri() . '/assets/libs/PhotoSwipe-4.1.2/photoswipe-ui-default.js' );
             wp_enqueue_script( 'photoswipe-ui-default-js', get_template_directory_uri() . '/assets/libs/PhotoSwipe-4.1.2/photoswipe.min.js' );
-            wp_enqueue_script( 'radiium-content-post', get_template_directory_uri() . '/assets/js/radiium.content-post.min.js', array('jquery') );
+            wp_enqueue_script( 'radiium-content-post', get_template_directory_uri() . '/assets/scripts/radiium.content-post.min.js', array('jquery') );
         }
 
         // wp_enqueue_script( 'radiium-drag', get_template_directory_uri() . '/assets/js/jquery.event.drag-2.2.js', array('jquery') );
@@ -58,7 +58,7 @@ if ( ! function_exists( 'radiium_scripts' ) ) {
 
         // Main script ans style
         wp_enqueue_style( 'radiium-theme-style', get_stylesheet_uri() );
-        wp_enqueue_script( 'radiium-main', get_template_directory_uri() . '/assets/js/radiium.main.min.js', array('jquery') );
+        wp_enqueue_script( 'radiium-main', get_template_directory_uri() . '/assets/scripts/radiium.main.min.js', array('jquery') );
 	}
     add_action( 'wp_enqueue_scripts', 'radiium_scripts' );
 }
