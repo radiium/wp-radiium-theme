@@ -13,10 +13,10 @@ npm install
 
 #### CSS:
 ```console
-# Compil once
-npm run css
-# Watch change
-npm run watch
+# Compil SASS files
+gulp sass
+# Watch SASS files change
+gulp sass:watch
 ```
 
 #### JS:
