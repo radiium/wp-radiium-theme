@@ -20,6 +20,11 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('assets/scripts'));
 });
 
+// Watch JS files change
+gulp.task('compress:watch', function() {
+    gulp.watch('./assets/scripts/**/*.js', ['compress']);
+});
+
 // Compil SASS files
 gulp.task('sass', function () {
     return gulp.src('./assets/styles/source.scss')
@@ -32,3 +37,7 @@ gulp.task('sass', function () {
 gulp.task('sass:watch', function () {
     gulp.watch('./assets/styles/**/*.scss', ['sass']);
 });
+
+
+// Watch JS files change
+gulp.task('all:watch', ['sass:watch', 'compress:watch']);
