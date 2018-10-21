@@ -36,7 +36,6 @@ if ( ! function_exists( 'radiium_setup' ) ) {
 if ( ! function_exists( 'radiium_scripts' ) ) {
 	function radiium_scripts() {
 
-        wp_enqueue_script( 'imagesloaded-js', get_template_directory_uri() . '/assets/libs/imagesloaded.pkgd.min.js' );
 
         // Load Shufflejs script
         if( is_front_page() ) {
@@ -53,10 +52,8 @@ if ( ! function_exists( 'radiium_scripts' ) ) {
             wp_enqueue_script( 'radiium-content-post', get_template_directory_uri() . '/assets/scripts/radiium.content-post.min.js', array('jquery') );
         }
 
-        // wp_enqueue_script( 'radiium-drag', get_template_directory_uri() . '/assets/js/jquery.event.drag-2.2.js', array('jquery') );
-        // wp_enqueue_script( 'radiium-drag', get_template_directory_uri() . '/assets/js/draggabilly.pkgd.min.js', array('jquery') );
-
         // Main script ans style
+        wp_enqueue_script( 'imagesloaded-js', get_template_directory_uri() . '/assets/libs/imagesloaded.pkgd.min.js' );
         wp_enqueue_style( 'radiium-theme-style', get_stylesheet_uri() );
         wp_enqueue_script( 'radiium-main', get_template_directory_uri() . '/assets/scripts/radiium.main.min.js', array('jquery') );
 	}
