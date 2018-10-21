@@ -20,6 +20,20 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('assets/scripts'));
 });
 
+// Compress photoswipe-ui-default
+gulp.task('compress:photoswipe', function() {
+    return gulp.src([
+        'assets/libs/PhotoSwipe-4.1.2/photoswipe-ui-default.js',
+    ])
+    .pipe(uglify().on('error', function(e){
+        console.log(e);
+    }))
+    .pipe(rename(function(path) {
+        path.extname = ".min.js";
+    }))
+    .pipe(gulp.dest('assets/libs/PhotoSwipe-4.1.2'));
+});
+
 // Watch JS files change
 gulp.task('compress:watch', function() {
     gulp.watch('./assets/scripts/**/*.js', ['compress']);
@@ -39,5 +53,5 @@ gulp.task('sass:watch', function () {
 });
 
 
-// Watch JS files change
+// Watch SASS/js files change
 gulp.task('all:watch', ['sass:watch', 'compress:watch']);
