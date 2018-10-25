@@ -257,8 +257,11 @@ $header_height_mini: 80px;
             min-width: 30px;
             height: 35px;
             min-height: 35px;
-            margin: 5px 15px 5px 5px;
+            margin: 5px 30px 5px 5px;
             cursor: pointer;
+            border: 3px solid black;
+            padding: 6px 5px 0 5px;
+            box-sizing: content-box;
 
             img {
                 width: 100%;
@@ -271,13 +274,14 @@ $header_height_mini: 80px;
             flex-direction: column;
 
             .sortersContainer {
-                margin-bottom: 15px;
+                // margin-bottom: 10px;
             }
 
             .filtersContainer,
             .sortersContainer {
                 display: flex;
                 flex-wrap: nowrap;
+                margin-bottom: 10px;
 
             }
 
@@ -285,6 +289,8 @@ $header_height_mini: 80px;
                 color: gray;
                 padding: 5px;
                 white-space: nowrap;
+                width: 110px;
+                min-width: 110px;
             }
             .postControlsItems {
                 display: flex;
@@ -294,10 +300,12 @@ $header_height_mini: 80px;
 
             .postBtn {
                 font-size: 1rem;
-                padding: 5px;
+                padding: 3px 8px;
                 margin: 2px;
+                // border: 3px solid transparent;
+                border: 3px solid black;
 
-                // &:hover {}
+                &:hover { }
                 &:active,
                 &.activ {
                     color: white;
@@ -829,6 +837,23 @@ $header_height_mini: 80px;
             }
         }
     }
+
+    .contentWrapper {
+        .postsGridWrapper {
+            .postControlsWrapper {
+                flex-direction: column;
+
+                .toggleFiltersBtn {
+                    align-self: center;
+                    width: 40px;
+                    min-width: 40px;
+                    height: 45px;
+                    min-height: 45px;
+                    margin: 5px 5px 30px 5px;
+                }
+            }
+        }
+    }
 }
 
 /* Medium Devices, Desktops */
@@ -889,26 +914,18 @@ $header_height_mini: 80px;
 /*
 *******************************************/
 .admin-bar {
-    #wpadminbar {
-        position: fixed;
-    }
     height: calc(100% - 32px) !important;
-
-        .wrapper {
-            padding-top: 32px !important;
-            height: 100% !important;
-        }
-        .navWrapper {
-            .navigation {
-                .navBar{
-                    top: 32px !important;
-                }
-                .navItemsMobil {
-                    top: calc(#{$header_height_mini} + 32px) !important;
-                    height: calc(100% - #{$header_height_mini} - 32px) !important;
-                }
+    #wpadminbar { position: fixed; }
+    .wrapper { height: 100% !important; }
+    .navWrapper {
+        .navigation {
+            .navBar{ top: 32px !important; }
+            .navItemsMobil {
+                top: calc(#{$header_height_mini} + 32px) !important;
+                height: calc(100% - #{$header_height_mini} - 32px) !important;
             }
         }
+    }
     // .wrapper { height: calc(100% - 20px); }
 }
 
@@ -916,16 +933,9 @@ $header_height_mini: 80px;
 
     .admin-bar {
         height: calc(100% - 46px) !important;
-
-        .wrapper {
-            padding-top: 46px !important;
-            height: 100% !important;
-        }
         .navWrapper {
             .navigation {
-                .navBar{
-                    top: 46px !important;
-                }
+                .navBar{ top: 46px !important; }
                 .navItemsMobil {
                     top: calc(#{$header_height_mini} + 46px) !important;
                     height: calc(100% - #{$header_height_mini} - 46px) !important;

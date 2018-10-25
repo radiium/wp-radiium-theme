@@ -21,6 +21,20 @@ function radiium_get_post_gallery_count() {
     return count($gallery['src']);
 }
 
+function radiium_generate_filterbar($label, $items) {
+    $output = '';
+    $output .= '<div class="filtersContainer">';
+    $output .= '<div class="postControlsLabel">'.$label.' :</div>';
+    $output .= '<div class="postControlsItems">';
+    $output .= '<input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>';
+    foreach ($items as $cat) {
+        $output .= '<input class="postFilterBtn postBtn" type="button" value="'.$cat->name.'" data-filter="'.$cat->name.'"></button>';
+    }
+    $output .= '</div>';
+    $output .= '</div>';
+    return $output;
+}
+
 $userAgentClass = '';
         if (wp_is_mobile()) {
             $userAgentClass = 'mobile';
@@ -51,7 +65,7 @@ $userAgentClass = '';
                 </div>
             </div>
 
-            <!-- Filters -->
+            <!-- Filters --
             <div class="filtersContainer">
                 <div class="postControlsLabel">Filter :</div>
                 <div class="postControlsItems">
@@ -61,8 +75,22 @@ $userAgentClass = '';
                     <?php } ?>
                 </div>
             </div>
+            -->
+            <?php echo radiium_generate_filterbar('Categories', get_categories()); ?>
+            <?php echo radiium_generate_filterbar('Tags', get_tags()); ?>
 
-            <!-- Filters -->
+            <!-- Filters by categories --
+            <div class="filtersContainer">
+                <div class="postControlsLabel">Categories :</div>
+                <div class="postControlsItems">
+                    <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
+                    <?php foreach (get_categories() as $cat) { ?>
+                        <input class="postFilterBtn postBtn" type="button" value="<?php echo $cat->name ?>" data-filter="<?php echo $cat->name ?>"></button>
+                    <?php } ?>
+                </div>
+            </div>
+
+            <!-- Filters by tags --
             <div class="filtersContainer">
                 <div class="postControlsLabel">Tags :</div>
                 <div class="postControlsItems">
@@ -72,6 +100,7 @@ $userAgentClass = '';
                     <?php } ?>
                 </div>
             </div>
+            -->
         </div>
     </div>
 
