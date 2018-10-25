@@ -507,6 +507,7 @@ var PhotoSwipeUI_Default =
 				item = sChildren[i];
 				classAttr = item.className;
 
+				console.log(_uiElements)
 				for(var a = 0; a < _uiElements.length; a++) {
 					uiElement = _uiElements[a];
 

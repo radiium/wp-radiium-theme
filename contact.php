@@ -8,6 +8,13 @@ Template Name: Contact me
 
 
 <?php
+
+$nameError = '';
+$emailError = '';
+$subjectError = '';
+$contentText = '';
+$messageError = '';
+
 //If the form is submitted
 if ( isset( $_POST['submitted'] ) ) {
 

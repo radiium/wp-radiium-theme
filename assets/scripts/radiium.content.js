@@ -4,77 +4,91 @@ jQuery( document ).ready( function( $ ) {
 	var itemSelector = 'postsListItem';
 
 	var Shuffle = window.Shuffle;
+	// var hull = window.hull;
     var element = document.querySelector('.' + gridSelector);
 
-    var shuffleInstance = new Shuffle(element, {
-		itemSelector: '.' + itemSelector,
-		useTransforms: true,
-		isCentered: true,
-	});
+	if (element && $(element).children().length > 0) {
+		var shuffleInstance = new Shuffle(element, {
+			itemSelector: '.' + itemSelector,
+			useTransforms: true,
+			isCentered: true,
+		});
 
-	$('.' + itemSelector).each(function(i, item) {
-		var clip = generateRandomClipPathRules();
-		$(item).find('img').attr('style', clip)
-	})
+		$('.' + itemSelector).each(function(i, item) {
+			var clip = generateRandomClipPathRules();
+			$(item).find('img').attr('style', clip)
+		})
 
 
-	var imgLoad = imagesLoaded( '.' + gridSelector);
-	imgLoad.on( 'done', function() {
-		shuffleInstance.layout();
-		$('.hidenItem').removeClass('hidenItem');
+		var imgLoad = imagesLoaded( '.' + gridSelector);
+		imgLoad.on( 'done', function() {
+			shuffleInstance.layout();
+			$('.hidenItem').removeClass('hidenItem');
 
-	});
+		});
 
-	$('.toggleFiltersBtn').click(function() {
-		$('.postControls').slideToggle(200);
-	});
+		$('.toggleFiltersBtn').click(function() {
+			$('.postControls').slideToggle(200);
+		});
 
-	// Filter items by group
-	var filtersList = [];
-	$('.postFilterBtn').click(function() {
-		var filter = $(this).data('filter');
+		// Filter items by group
+		var filtersList = [];
+		$('.postFilterBtn').click(function() {
+			var filter = $(this).data('filter');
 
-		if (filter == 'all') {
-			filtersList = [];
-			$('.activ').removeClass('activ');
-			$('.postFilterAllBtn').addClass('activ');
-
-		} else {
-			var index = filtersList.indexOf(filter);
-			$('.postFilterAllBtn').removeClass('activ');
-			if (index === -1) {
-				filtersList.push(filter);
-				$(this).addClass('activ');
-			} else {
-				filtersList.splice(index, 1);
-				$(this).removeClass('activ');
-			}
-
-			if (filtersList.length < 1) {
+			if (filter == 'all') {
+				filtersList = [];
+				$('.activ').removeClass('activ');
 				$('.postFilterAllBtn').addClass('activ');
+
+			} else {
+				var index = filtersList.indexOf(filter);
+				$('.postFilterAllBtn').removeClass('activ');
+				if (index === -1) {
+					filtersList.push(filter);
+					$(this).addClass('activ');
+				} else {
+					filtersList.splice(index, 1);
+					$(this).removeClass('activ');
+				}
+
+				if (filtersList.length < 1) {
+					$('.postFilterAllBtn').addClass('activ');
+				}
 			}
-		}
 
-		shuffleInstance.filter(filtersList);
-	});
+			shuffleInstance.filter(filtersList);
+		});
 
 
-	// Shuffle items
-	$('.postShuffleBtn').click(function() {
-		shuffleInstance.sort({ randomize: true });
-	});
+		// Shuffle items
+		$('.postShuffleBtn').click(function() {
+			shuffleInstance.sort({ randomize: true });
+		});
 
-	// Reverse items
-	$('.postReverseBtn').click(function() {
-		var reverse = true;
-		if (shuffleInstance.lastSort && shuffleInstance.lastSort.reverse !== null) {
-			reverse = !shuffleInstance.lastSort.reverse;
-		}
-		shuffleInstance.sort({ reverse: reverse });
-	});
+		// Reverse items
+		$('.postReverseBtn').click(function() {
+			var reverse = true;
+			if (shuffleInstance.lastSort && shuffleInstance.lastSort.reverse !== null) {
+				reverse = !shuffleInstance.lastSort.reverse;
+			}
+			shuffleInstance.sort({ reverse: reverse });
+		});
+	}
+
 });
 
 function generateRandomClipPathRules() {
+	/*
+	var str = [];
+	var hulls = hull(generateRandomPoints2(), 20);
+	console.log('hulls', hulls)
+	for (var i = 0; i < hulls.length; i++) {
+		var h = hulls[i];
+		str.push(h[0] + '%' + h[1] + '%')
+	}
+	*/
+
 	var str = [];
 	var hulls = makeHull(generateRandomPoints());
 	for (var i = 0; i < hulls.length; i++) {
@@ -96,6 +110,21 @@ function generateRandomPoints() {
 			x: getRandomInt(0, 100),
 			y: getRandomInt(0, 100),
 		});
+	}
+	/*
+	points.push({ x: 100, y: 0 });
+	points.push({ x: 100, y: 100 });
+	*/
+	return points;
+}
+function generateRandomPoints2() {
+	var numPoints = Math.round(Math.pow(30, Math.random()) * 6);
+	var points = [];
+	for (var i = 0; i < numPoints; i++) {
+		points.push([
+			getRandomInt(0, 100),
+			getRandomInt(0, 100)
+		]);
 	}
 	/*
 	points.push({ x: 100, y: 0 });

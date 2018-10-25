@@ -5,6 +5,7 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 
+
 // Compress JS files
 gulp.task('compress', function() {
     return gulp.src([
@@ -23,7 +24,7 @@ gulp.task('compress', function() {
 // Compress photoswipe-ui-default
 gulp.task('compress:photoswipe', function() {
     return gulp.src([
-        'assets/libs/PhotoSwipe-4.1.2/photoswipe-ui-default.js',
+        'assets/vendor/PhotoSwipe-4.1.2/photoswipe-ui-default.js',
     ])
     .pipe(uglify().on('error', function(e){
         console.log(e);
@@ -31,7 +32,7 @@ gulp.task('compress:photoswipe', function() {
     .pipe(rename(function(path) {
         path.extname = ".min.js";
     }))
-    .pipe(gulp.dest('assets/libs/PhotoSwipe-4.1.2'));
+    .pipe(gulp.dest('assets/vendor/PhotoSwipe-4.1.2'));
 });
 
 // Watch JS files change
@@ -42,7 +43,7 @@ gulp.task('compress:watch', function() {
 // Compil SASS files
 gulp.task('sass', function () {
     return gulp.src('./assets/styles/source.scss')
-        .pipe(sass({ outputStyle: 'compact' }).on('error', sass.logError))
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError)) // compressed / compact
         .pipe(rename('style.css'))
         .pipe(gulp.dest('./'));
 });

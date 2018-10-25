@@ -1,37 +1,41 @@
 
 <?php get_header(); ?>
 
-<?php
 
-if ( have_posts() ) :
+    <!-- BEGIN contentWrapper -->
+    <div class="contentWrapper flexSpacer">
+    <?php
 
-    // All articles page
-    if ( is_front_page() ) :
+    if ( have_posts() ) :
 
-        get_template_part( 'template-parts/content' );
+        // All articles page
+        if ( is_front_page() ) :
 
-    // Single pages
-    elseif ( ! is_front_page() && is_single()) :
-        while ( have_posts()) : the_post();
+            get_template_part( 'templates/content' );
 
-            // Single attachment page
-            if (get_post_type() == 'attachment') {
-                get_template_part( 'template-parts/content', 'single-attachment' );
+        // Single pages
+        elseif ( ! is_front_page() && is_single()) :
+            while ( have_posts()) : the_post();
 
-            // Single post page
-            } else {
-                get_template_part( 'template-parts/content', 'single' );
-            }
-        endwhile;
+                // Single attachment page
+                if (get_post_type() == 'attachment') {
+                    get_template_part( 'templates/content', 'single-attachment' );
 
-    // Other page(s)
-    else :
-        while ( have_posts()) : the_post();
-            the_content();
-        endwhile;
+                // Single post page
+                } else {
+                    get_template_part( 'templates/content', 'single' );
+                }
+            endwhile;
+
+        // Other page(s)
+        else :
+            while ( have_posts()) : the_post();
+                the_content();
+            endwhile;
+        endif;
+
     endif;
-
-endif;
-?>
+    ?>
+    </div><!-- END contentWrapper -->
 
 <?php get_footer(); ?>

@@ -1,16 +1,18 @@
 jQuery( document ).ready( function( $ ) {
 
 	// Toggle mobil menu
-	$('.menuMobilBtn').on('click', function() {
-		$('.menuMobilBtn').toggleClass('rotated');
-		$('.menuMobil').toggleClass('opened');
+	$('.navTogglelBtn').on('click', function() {
+		$('.navTogglelBtn').toggleClass('rotated');
+		$('.navItems').toggleClass('opened');
+		$('.contentWrapper').toggleClass('overflowHidden');
 	});
 
 	// Reset some variable on resize
 	$(window).on('resize', function() {
 		if ($(this).width() >= 768) {
-			$('.menuMobilBtn').removeClass('rotated');
-			$('.menuMobil').removeClass('opened');
+			$('.navTogglelBtn').removeClass('rotated');
+			$('.navItems').removeClass('opened');
+			$('.contentWrapper').removeClass('overflowHidden');
 		}
 	});
 
