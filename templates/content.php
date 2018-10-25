@@ -61,6 +61,17 @@ $userAgentClass = '';
                     <?php } ?>
                 </div>
             </div>
+
+            <!-- Filters -->
+            <div class="filtersContainer">
+                <div class="postControlsLabel">Tags :</div>
+                <div class="postControlsItems">
+                    <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
+                    <?php foreach (get_tags() as $tag) { ?>
+                        <input class="postFilterBtn postBtn" type="button" value="<?php echo $tag->name ?>" data-filter="<?php echo $tag->name ?>"></button>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -55,7 +55,6 @@
             transform: $args;
 }
 
-$header_width: 270px;
 $header_height: 90px;
 $header_height_mini: 80px;
 
@@ -75,12 +74,9 @@ $header_height_mini: 80px;
 *******************************************/
 .wrapper {
     height: 100%;
-    width: calc(100% - #{$header_width});
-    margin: 0 0 0 $header_width;
+    width: 100%;
+    padding-top: $header_height;
     background-color: white;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
 
     .contentWrapper {
         height: 100%;
@@ -95,19 +91,26 @@ $header_height_mini: 80px;
 *******************************************/
 
 .navWrapper {
-
     .navigation {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: unset;
-        height: 100%;
-        width: $header_width;
-        border-right: .25em solid #000;
-        background-color: white;
+        position: relative;
+        width: 100%;
 
         .navBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
             height: $header_height;
+            z-index: 101;
+            background-color: white;
+            height: $header_height;
+            padding: 0 20px 0 20px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: .25em solid #000;
 
             // Logo
             .navLogo {
@@ -115,7 +118,6 @@ $header_height_mini: 80px;
                 width: auto;
                 display: flex;
                 justify-content: center;
-                padding-left: 20px;
 
                 .name {
                     font-size: 2em;
@@ -146,42 +148,62 @@ $header_height_mini: 80px;
             }
         }
 
-        .navItems {
-            height: calc(100% - #{$header_height});
-            padding: 20px;
-            background-color: white;
-            overflow: auto;
-
-            .navContent {
+        .navContent {
+            .menu {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: nowrap;
                 align-items: flex-start;
-                padding-bottom: 30px;
-                min-height: calc(100% - 45px) !important;
+                position: relative;
 
                 .menu-item {
-                    margin-top: 5px;
+                    margin: 0 5px;
+                    padding: 3px 6px;
+                    font-size: 1.6em;
+                    font-weight: bold !important;
+                    border: 3px solid transparent;
 
+                    &:hover { border: 3px solid black; }
                     &.current-menu-item {
-                        text-decoration: underline;
-                    }
-
-                    &.menu-item-object-post {
-                        margin-left: 10px;
-                        font-size: 0.9em;
-                        color: rgba(255, 255, 255, .6)
-                    }
-
-                    .navLink {
-                        padding: 5px 10px;
-                        color: white !important;
                         background-color: black;
+                        a { color: white; }
+                    }
+                }
+            }
+        }
 
-                        &:hover {
-                            font-weight: bold;
-                            color: black !important;
-                            background-color: white;
-                        }
+        .navItemsMobil {
+            display: none;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 20px;
+            z-index: 100;
+            position: fixed;
+            top: $header_height;
+            overflow: auto;
+            left: 0;
+            right: 0;
+            bottom: 100%;
+            width: 100%;
+            height: calc(100% - #{$header_height});
+            border-bottom: .25em solid #000;
+            background-color: white;
+            @include transform(translate(0,-100%) translate3d(0,-100%,0));
+            @include transition(all ease-out .4s);
+
+            &.opened {
+                @include transform(none);
+            }
+
+            .navContent {
+                .menu {
+                    margin-top: 20px;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .menu-item {
+                        margin: 5px 0;
                     }
                 }
             }
@@ -190,6 +212,9 @@ $header_height_mini: 80px;
             .navFooter {
                 display: flex;
                 flex-direction: column;
+                align-content: center;
+                text-align: center;
+                align-self: center;
                 height: 45px;
 
                 .copyright { font-size: 0.8em; }
@@ -784,31 +809,23 @@ $header_height_mini: 80px;
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
-    body {
-        height: calc(100% - #{$header_height_mini}) !important;
-    }
     .wrapper {
-        height: calc(100% - #{$header_height_mini}) !important;
-        margin: $header_height_mini 0 0 0 !important;
+        padding-top: $header_height_mini;
     }
+
     .navWrapper {
         .navigation {
             .navBar {
                 height: $header_height_mini !important;
                 .navLogo {
-                    height: $header_height_mini !important;
-                    .name {
-                        font-size: 1.8em;
-                    }
-                    .description {
-                        font-size: 1em;
-                    }
+                    .name { font-size: 1.8em; }
+                    .description { font-size: 1em; }
                 }
+                .navContent { display: none; }
+                .navTogglelBtn { display: block; }
             }
-            .navItems {
-                top: $header_height_mini !important;
-                height: calc(100% - #{$header_height_mini});
+            .navItemsMobil {
+                display: flex;
             }
         }
     }
@@ -816,75 +833,6 @@ $header_height_mini: 80px;
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-
-    body {
-        height: calc(100% - #{$header_height});
-    }
-    .wrapper {
-        height: calc(100% - #{$header_height});
-        width: 100%;
-        margin: $header_height 0 0 0;
-        flex-direction: column;
-
-        .contentWrapper {
-            height: unset;
-            width: 100%;
-        }
-    }
-
-    .navWrapper {
-        .navigation {
-            position: relative;
-            top: 0;
-            left: 0;
-            right: unset;
-            height: 100%;
-            width: $header_width;
-            border-right: .25em solid #000;
-
-            .navBar {
-                background-color: white;
-                z-index: 101;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: unset;
-                height: $header_height;
-                width: 100%;
-                border-right: .25em solid #000;
-                padding: 0 20px 0 20px;
-                display: flex;
-                flex-wrap: nowrap;
-                align-items: center;
-                justify-content: space-between;
-                border-right: 0;
-                border-bottom: .25em solid #000;
-
-                .navLogo {
-                    padding-left: 0;
-                }
-                .navTogglelBtn { display: block; }
-            }
-
-            .navItems {
-                z-index: 100;
-                position: fixed;
-                top: $header_height;
-                left: 0;
-                right: 0;
-                bottom: 100%;
-                width: 100%;
-                border-bottom: .25em solid #000;
-                @include transform(translate(0,-100%) translate3d(0,-100%,0));
-                @include transition(all ease-out .4s);
-
-                &.opened {
-                    @include transform(none);
-                }
-            }
-        }
-    }
 }
 
 /* Large Devices, Wide Screens */
@@ -941,18 +889,26 @@ $header_height_mini: 80px;
 /*
 *******************************************/
 .admin-bar {
-    height: calc(100% - 32px);
+    #wpadminbar {
+        position: fixed;
+    }
+    height: calc(100% - 32px) !important;
 
-    .wrapper {
-        padding-top: 33px;
-        height: 100%;
-    }
-    .navWrapper {
-        .navigation {
-            top: 32px;
-            height: calc(100% - 32px);
+        .wrapper {
+            padding-top: 32px !important;
+            height: 100% !important;
         }
-    }
+        .navWrapper {
+            .navigation {
+                .navBar{
+                    top: 32px !important;
+                }
+                .navItemsMobil {
+                    top: calc(#{$header_height_mini} + 32px) !important;
+                    height: calc(100% - #{$header_height_mini} - 32px) !important;
+                }
+            }
+        }
     // .wrapper { height: calc(100% - 20px); }
 }
 
@@ -969,36 +925,13 @@ $header_height_mini: 80px;
             .navigation {
                 .navBar{
                     top: 46px !important;
-                    // height: calc(100% - 46px) !important;
                 }
-                .navItems {
+                .navItemsMobil {
                     top: calc(#{$header_height_mini} + 46px) !important;
                     height: calc(100% - #{$header_height_mini} - 46px) !important;
                 }
             }
         }
-        // .wrapper { height: calc(100% - 20px); }
     }
 }
-@media screen and ( max-width: 992px ) {
-    .admin-bar {
-        height: calc(100% - 32px) !important;
 
-        .wrapper {
-            padding-top: 32px !important;
-            height: 100% !important;
-        }
-        .navWrapper {
-            .navigation {
-                .navBar{
-                    top: 32px !important;
-                    // height: calc(100% - 46px) !important;
-                }
-                .navItems {
-                    top: calc(#{$header_height_mini} + 32px) !important;
-                    height: calc(100% - #{$header_height_mini} - 32px) !important;
-                }
-            }
-        }
-    }
-}

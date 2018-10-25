@@ -3,7 +3,7 @@ jQuery( document ).ready( function( $ ) {
 	// Toggle mobil menu
 	$('.navTogglelBtn').on('click', function() {
 		$('.navTogglelBtn').toggleClass('rotated');
-		$('.navItems').toggleClass('opened');
+		$('.navItemsMobil').toggleClass('opened');
 		$('.contentWrapper').toggleClass('overflowHidden');
 	});
 
@@ -11,7 +11,7 @@ jQuery( document ).ready( function( $ ) {
 	$(window).on('resize', function() {
 		if ($(this).width() >= 768) {
 			$('.navTogglelBtn').removeClass('rotated');
-			$('.navItems').removeClass('opened');
+			$('.navItemsMobil').removeClass('opened');
 			$('.contentWrapper').removeClass('overflowHidden');
 		}
 	});
