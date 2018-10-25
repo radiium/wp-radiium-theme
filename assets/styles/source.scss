@@ -945,24 +945,60 @@ $header_height_mini: 80px;
 
     .wrapper {
         padding-top: 33px;
+        height: 100%;
     }
     .navWrapper {
         .navigation {
-            .navBar {
-                top: 32px;
-                height: calc(100% - 32px);
-            }
+            top: 32px;
+            height: calc(100% - 32px);
         }
     }
     // .wrapper { height: calc(100% - 20px); }
 }
 
 @media screen and ( max-width: 782px ) {
-	.admin-bar {
-        height: calc(100% - 46px);
-        .header {
-            top: 46px;
+
+    .admin-bar {
+        height: calc(100% - 46px) !important;
+
+        .wrapper {
+            padding-top: 46px !important;
+            height: 100% !important;
+        }
+        .navWrapper {
+            .navigation {
+                .navBar{
+                    top: 46px !important;
+                    // height: calc(100% - 46px) !important;
+                }
+                .navItems {
+                    top: calc(#{$header_height_mini} + 46px) !important;
+                    height: calc(100% - #{$header_height_mini} - 46px) !important;
+                }
+            }
         }
         // .wrapper { height: calc(100% - 20px); }
+    }
+}
+@media screen and ( max-width: 992px ) {
+    .admin-bar {
+        height: calc(100% - 32px) !important;
+
+        .wrapper {
+            padding-top: 32px !important;
+            height: 100% !important;
+        }
+        .navWrapper {
+            .navigation {
+                .navBar{
+                    top: 32px !important;
+                    // height: calc(100% - 46px) !important;
+                }
+                .navItems {
+                    top: calc(#{$header_height_mini} + 32px) !important;
+                    height: calc(100% - #{$header_height_mini} - 32px) !important;
+                }
+            }
+        }
     }
 }
