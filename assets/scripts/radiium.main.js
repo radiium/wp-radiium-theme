@@ -16,7 +16,7 @@ jQuery( document ).ready( function( $ ) {
 		}
 	});
 
-	// About page
+	// Translatable text bloc
 	$(".tabMenuItem1").click(function() {
 		$('.tabMenuItem.active').removeClass('active');
 		$(this).addClass('active');
