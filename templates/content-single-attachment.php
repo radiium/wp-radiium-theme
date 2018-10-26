@@ -24,6 +24,6 @@
     </div>
 
     <div class="attachImg flexSpacer">
-        <img src="<?php echo $imgFull[0] ?>" alt="$alt">
+        <img src="<?php echo $imgFull[0] ?>" alt="<?php echo $alt ?>">
     </div>
 </div>

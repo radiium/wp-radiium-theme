@@ -8,11 +8,9 @@
     <div class="notFountInfos">
         <div class="notFountTitle">404</div>
         <div class="notFountMessage">
-        <p>The requested file</p>
-        <p>was not found. Oh no...</p>
-        <p class="returnLink"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="works">Return at /home</a></p>
-
-
+            <p><?php _e('The requested file', 'radiium') ?></p>
+            <p><?php _e('was not found. Oh no...', 'radiium') ?></p>
+            <p class="returnLink"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="works"><?php _e('Return at /home', 'radiium') ?></a></p>
         </div>
     </div>
 </div>

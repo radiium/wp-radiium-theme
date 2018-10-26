@@ -1,15 +1,18 @@
 <?php
 
+// define ('WPLANG', 'fr_FR');
+define ('WPLANG', 'en_EN');
+
+
 /**
  *  Init radiium theme
  */
 if ( ! function_exists( 'radiium_setup' ) ) {
     function radiium_setup() {
-        load_theme_textdomain( 'radiium', get_template_directory() . '/languages' );
         add_theme_support( 'title-tag' );
         add_theme_support( 'post-thumbnails' );
         register_nav_menus( array(
-            'radiiumMenu' => esc_html__( 'Primary', 'radiium' ),
+            'radiiumMenu' => esc_html_e( 'Primary', 'radiium' ),
         ) );
         add_theme_support( 'custom-background', apply_filters( 'radiium_custom_background_args', array(
 			'default-color' => 'ffffff',
@@ -22,8 +25,7 @@ if ( ! function_exists( 'radiium_setup' ) ) {
             'flex-height' => true,
             'header-text' => array( 'site-title', 'site-description' )
         ) );
-
-        // load_theme_textdomain('radiiumLang', get_template_directory() . '/languages');
+        load_theme_textdomain( 'radiium', get_template_directory() . '/languages' );
     }
 
     add_action( 'after_setup_theme', 'radiium_setup' );
@@ -163,24 +165,24 @@ if ( ! function_exists( 'radiium_add_media_custom_field' ) ) {
         $radiium_tech = get_post_meta( $post->ID, 'radiium_tech', true );
         $form_fields['radiium_tech'] = array(
             'value' => $radiium_tech ? $radiium_tech : '',
-            'label' => __( 'Technical' ),
-            'helps' => __( 'Enter technical' ),
+            'label' => __( 'Technical', 'radiium' ),
+            'helps' => __( 'Enter technical', 'radiium' ),
             'input'  => 'text'
         );
 
         $radiium_format = get_post_meta( $post->ID, 'radiium_format', true );
         $form_fields['radiium_format'] = array(
             'value' => $radiium_format ? $radiium_format : '',
-            'label' => __( 'Format' ),
-            'helps' => __( 'Enter format' ),
+            'label' => __( 'Format', 'radiium' ),
+            'helps' => __( 'Enter format', 'radiium' ),
             'input'  => 'text'
         );
 
         $radiium_year = get_post_meta( $post->ID, 'radiium_year', true );
         $form_fields['radiium_year'] = array(
             'value' => $radiium_year ? $radiium_year : '',
-            'label' => __( 'Year' ),
-            'helps' => __( 'Enter year' ),
+            'label' => __( 'Year', 'radiium' ),
+            'helps' => __( 'Enter year', 'radiium' ),
             'input'  => 'text'
         );
         return $form_fields;
@@ -217,9 +219,11 @@ if ( ! function_exists( 'radiium_save_attachment' ) ) {
 
 
 /**
- *  Save custom media fields
+ *  Custom image shortcode
+ *
+ *  example: [radiium_image id="" class="" type=""]
  */
-if (!function_exists('radiium_image_shortcode')) {
+if ( !function_exists('radiium_image_shortcode' ) ) {
     function radiium_image_shortcode($atts, $content = null) {
         $args = array(
             'id' => '',
@@ -235,14 +239,45 @@ if (!function_exists('radiium_image_shortcode')) {
 }
 
 
-function wps_deregister_styles() {
-    wp_deregister_style( 'contact-form-7' );
+
+/**
+ *  Custom tex block shortcode
+ *
+ *  example: [textBlock textFR="" textEN=""]
+ */
+if ( !function_exists('radiium_text_block_shortcode' ) ) {
+    function radiium_text_bloc_shortcode( $atts ) {
+
+        // Attributes
+        $atts = shortcode_atts(
+            array(
+                'fr' => '',
+                'en' => '',
+            ),
+            $atts
+        );
+
+        $frFlagSrc = get_site_url().'/wp-content/themes/radiium/assets/images/fr-flag.png';
+        $enFlagSrc = get_site_url().'/wp-content/themes/radiium/assets/images/en-flag.png';
+
+        $html = '';
+        $html .= '<script>';
+        $html .= '';
+        $html .= '</script>';
+        $html .= '<div class="textBloc">';
+        $html .= '  <div class="tabMenu">';
+        $html .= '      <img src="'.$frFlagSrc.'" alt="" class="tabMenuItem1 tabMenuItem active" />';
+        $html .= '      <img src="'.$enFlagSrc.'" alt="" class="tabMenuItem2 tabMenuItem"/>';
+        $html .= '  </div>';
+        $html .= '  <div id="tabContent1" class="tabContent">'.$atts['fr'].'</div>';
+        $html .= '  <div id="tabContent2" class="tabContent" style="display: none;">'.$atts['en'].'</div>';
+        $html .= '</div>';
+
+        return $html;
+
+    }
+    add_shortcode( 'bloc', 'radiium_text_bloc_shortcode' );
 }
-add_action( 'wp_print_styles', 'wps_deregister_styles', 100 );
-
-
-
-
 
 
 /**

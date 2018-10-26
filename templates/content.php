@@ -58,7 +58,7 @@ $userAgentClass = '';
 
             <!-- Sorters -->
             <div class="sortersContainer">
-                <div class="postControlsLabel">sort :</div>
+                <div class="postControlsLabel"><?php _e('Sort :', 'radiium')?></div>
                 <div class="postControlsItems">
                     <input class="postShuffleBtn postBtn" type="button" value="Shuffle"></button>
                     <input class="postReverseBtn postBtn" type="button" value="Reverse"></button>
@@ -76,8 +76,8 @@ $userAgentClass = '';
                 </div>
             </div>
             -->
-            <?php echo radiium_generate_filterbar('Categories', get_categories()); ?>
-            <?php echo radiium_generate_filterbar('Tags', get_tags()); ?>
+            <?php echo radiium_generate_filterbar( __('Categories', 'radiium'), get_categories()); ?>
+            <?php echo radiium_generate_filterbar( __('Tags', 'radiium') , get_tags()); ?>
 
             <!-- Filters by categories --
             <div class="filtersContainer">
@@ -90,7 +90,7 @@ $userAgentClass = '';
                 </div>
             </div>
 
-            <!-- Filters by tags --
+            -- Filters by tags --
             <div class="filtersContainer">
                 <div class="postControlsLabel">Tags :</div>
                 <div class="postControlsItems">

@@ -9,6 +9,7 @@
     "gulp-uglify": "^3.0.1",
     "node-sass": "^4.9.4",
     "nodemon": "^1.11.0",
-    "pump": "^3.0.0"
+    "pump": "^3.0.0",
+    "wp-pot-cli": "^1.2.1"
   }
 }

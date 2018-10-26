@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: radiium\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2018-10-25 22:58+0200\n"
+"Last-Translator: \n"
+"Language-Team: radiium\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../404.php:11
+msgid "The requested file"
+msgstr "Le fichier demandé"
+
+#: ../404.php:12
+msgid "was not found. Oh no..."
+msgstr "n’a pas été trouvé. Oh non…"
+
+#: ../404.php:13
+msgid "Return at /home"
+msgstr "Retourner à /home"
+
+#: ../contact.php:3
+msgid "Contact me"
+msgstr "Contactez moi"
+
+#: ../contact.php:28
+msgid "You forgot to enter your name."
+msgstr "Vous avez oublié d’entrer votre nom."
+
+#: ../contact.php:36
+msgid "You forgot to enter your email address."
+msgstr "Vous avez oublié de saisir votre adresse e-mail."
+
+#: ../contact.php:40
+msgid "You entered an invalid email address."
+msgstr "Vous avez entré une adresse mail invalide."
+
+#: ../contact.php:50
+msgid "You forgot to enter a subject."
+msgstr "Vous avez oublié d’entrer un sujet."
+
+#: ../contact.php:58
+msgid "You forgot to enter your contactMessage."
+msgstr "Vous avez oublié d’entrer votre message."
+
+#: ../contact.php:83
+msgid "You emailed Your Name"
+msgstr "Vous avez envoyé votre nom par courriel"
+
+#: ../contact.php:84
+msgid "From: Your Name <noreply@somedomain.com>"
+msgstr "Depuis: Votre Nom <noreply@somedomain.com>"
+
+#: ../contact.php:99
+msgid "Thank you"
+msgstr "Merci"
+
+#: ../contact.php:100
+msgid "Your message has been sent successfully !"
+msgstr "Votre message a été envoyé avec succès !"
+
+#: ../contact.php:102
+msgid "Return at"
+msgstr "Retourner à"
+
+#: ../contact.php:110
+msgid "SAY HELLO!"
+msgstr "SAY HELLO!"
+
+#: ../contact.php:116
+msgid "There is an error in the form !"
+msgstr "Il y a une erreur dans le formulaire!"
+
+#: ../contact.php:122
+msgid "Your name"
+msgstr "Votre nom"
+
+#: ../contact.php:129
+msgid "Your email address"
+msgstr "Votre adresse email"
+
+#: ../contact.php:136
+msgid "Subjet"
+msgstr "Sujet"
+
+#: ../contact.php:143
+msgid "Your message"
+msgstr "Votre message"
+
+#: ../contact.php:161
+msgid "Send a copy"
+msgstr "Envoyer une copie"
+
+#: ../contact.php:168
+msgid "Send"
+msgstr "Envoyer"
+
+#: ../functions.php:12
+msgid "Primary"
+msgstr "Primary"
+
+#: ../functions.php:166
+msgid "Technical"
+msgstr "Technique"
+
+#: ../functions.php:167
+msgid "Enter technical"
+msgstr "Entrez la technique"
+
+#: ../functions.php:174
+msgid "Format"
+msgstr "Format"
+
+#: ../functions.php:175
+msgid "Enter format"
+msgstr "Entrez le format"
+
+#: ../functions.php:182
+msgid "Year"
+msgstr "Année"
+
+#: ../functions.php:183
+msgid "Enter year"
+msgstr "Entrez l’année"
+
+#: ../templates/content.php:61
+msgid "Sort :"
+msgstr "Trier :"
+
+#: ../templates/content.php:79
+msgid "Categories :"
+msgstr "Catégories :"
+
+#: ../templates/content.php:80
+msgid "Tags :"
+msgstr "Mots clés :"
+
+#, fuzzy
+#~| msgid "Retour"
+#~ msgid "Retour "
+#~ msgstr "Retour"

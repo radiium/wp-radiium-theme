@@ -1,14 +1,14 @@
 
 /*!
 
-    Theme Name: Radiium
+    Theme Name: radiium
     Theme URI: https://github.com/radiium/wp-radiium-theme
     Author: Radiium
     Author URI: https://github.com/radiium
     License: MIT
     License URI: https://github.com/radiium/wp-radiium-theme/LICENCE.md
     Description: A simple custom theme for http://radiium.space
-    Version: 0.0.1
+    Version: 1.0.0
     Text Domain: Radiium
     Tags: portfolio
 
@@ -552,24 +552,6 @@ $header_height_mini: 80px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-
-        .tabMenu {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-
-            .tabMenuItem {
-                width: 30px;
-                height: 30px;
-                margin: 0 10px 5px 0;
-                cursor: pointer;
-                opacity: 0.5;
-
-                &.active {
-                    opacity: 1;
-                }
-            }
-        }
     }
 
     .thumb {
@@ -577,8 +559,8 @@ $header_height_mini: 80px;
         width: 120px;
         height: 120px;
         position: relative;
-        margin-right: 50px;
-        align-self: center;
+        margin: 0 50px 0 0;
+        // align-self: center;
         border: .25em solid black;
 
         .thumbBg {
@@ -784,7 +766,25 @@ $header_height_mini: 80px;
 /*  12.	SNIPPET
 /*
 *******************************************/
+.textBloc {
+    .tabMenu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
 
+        .tabMenuItem {
+            width: 30px;
+            height: 30px;
+            margin: 0 10px 5px 0;
+            cursor: pointer;
+            opacity: 0.5;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
+}
 
 
 

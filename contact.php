@@ -25,7 +25,7 @@ if ( isset( $_POST['submitted'] ) ) {
 
 		//Check to make sure that the name field is not empty
 		if ( trim( $_POST['contactName']) === '' ) {
-			$nameError = 'You forgot to enter your name.';
+			$nameError = __('You forgot to enter your name.', 'radiium');
 			$hasError = true;
 		} else {
 			$name = trim($_POST['contactName']);
@@ -33,11 +33,11 @@ if ( isset( $_POST['submitted'] ) ) {
 
 		//Check to make sure sure that a valid email address is submitted
 		if ( trim($_POST['email']) === '' )  {
-			$emailError = 'You forgot to enter your email address.';
+			$emailError = __('You forgot to enter your email address.', 'radiium');
 			$hasError = true;
 
         } else if ( !is_email( trim( $_POST['email'] ) ) ) {
-			$emailError = 'You entered an invalid email address.';
+			$emailError = __('You entered an invalid email address.', 'radiium');
 			$hasError = true;
 
         } else {
@@ -47,7 +47,7 @@ if ( isset( $_POST['submitted'] ) ) {
 
         //Check to make sure that the subject field is not empty
 		if ( trim( $_POST['contactSubject']) === '' ) {
-			$subjectError = 'You forgot to enter a subject.';
+			$subjectError = __('You forgot to enter a subject.', 'radiium');
 			$hasError = true;
 		} else {
 			$contactSubject = trim($_POST['contactSubject']);
@@ -55,7 +55,7 @@ if ( isset( $_POST['submitted'] ) ) {
 
 		//Check to make sure contactMessage were entered
 		if ( trim( $_POST['contactMessage'] ) === '' ) {
-			$messageError = 'You forgot to enter your contactMessage.';
+			$messageError = __('You forgot to enter your contactMessage.', 'radiium');
             $hasError = true;
 
 		} else {
@@ -80,8 +80,8 @@ if ( isset( $_POST['submitted'] ) ) {
 
             // Send copy email to sender
 			if ( $sendCopy == true ) {
-				$subject = 'You emailed Your Name';
-				$headers = 'From: Your Name <noreply@somedomain.com>';
+				$subject = __('You emailed Your Name', 'radiium');
+				$headers = __('From: Your Name <noreply@somedomain.com>', 'radiium');
 				wp_mail( $email, $subject, $body, $headers );
 			}
 
@@ -96,10 +96,10 @@ if ( isset( $_POST['submitted'] ) ) {
     <?php
     if ( isset( $emailSent ) && $emailSent == true ) {?>
         <div class="thanks">
-            <h1>Merci, <?=$name;?></h1>
-            <p>Votre message a été envoyé avec succès !</p>
+            <h1><?php _e('Thank you', 'radiium')?>, <?=$name;?></h1>
+            <p><?php _e('Your message has been sent successfully !', 'radiium')?></p>
             <div class="returnBtn">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Retour</a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php _e('Return at', 'radiium')?> /home</a>
             </div>
         </div>
 
@@ -107,40 +107,40 @@ if ( isset( $_POST['submitted'] ) ) {
     $emailSent = false;
 } else { ?>
 
-    <div class="sayHello">SAY HELLO!</div>
+    <div class="sayHello"><?php _e('SAY HELLO!', 'radiium')?></div>
 
     <form action="<?php the_permalink(); ?>" method="post" class="contactForm flexCol <?php if ( isset( $hasError ) ) echo 'invalid'; ?>" <?php language_attributes(); ?>>
 
         <div class="formRow errorGlobal">
         <?php if ( isset( $hasError ) || isset( $captchaError ) ) { ?>
-			<div class="">Il y a eu une erreur dans le formulaire !</div>
+			<div class=""><?php _e('There is an error in the form !', 'radiium')?></div>
 		<?php } ?>
         </div>
 
         <!-- Name -->
         <div class="formRow flexCol formName">
-            <label for="contactName">Votre nom<span class="required">*</span></label>
+            <label for="contactName"><?php _e('Your name', 'radiium')?><span class="required">*</span></label>
             <input class="formInput bordered" type="text" name="contactName" required="" aria-required="true" value="<?php if ( isset( $_POST['contactName'] ) ) echo $_POST['contactName'];?>">
             <?php if ( $nameError != '' ) echo '<div class="error">'.$nameError.'</div>' ?>
         </div>
 
         <!-- Email -->
         <div class="formRow flexCol formMail">
-            <label for="email">Votre adresse de messagerie<span class="required">*</span></label>
+            <label for="email"><?php _e('Your email address', 'radiium')?><span class="required">*</span></label>
             <input class="formInput bordered" type="email" name="email" required="" aria-required="true" value="<?php if ( isset( $_POST['email'] ) ) echo $_POST['email'];?>">
             <?php if ( $emailError != '' ) echo '<div class="error">'.$emailError.'</div>' ?>
         </div>
 
         <!-- Subject -->
         <div class="formRow flexCol formSubject">
-            <label for="contactSubject">Sujet<span class="required">*</span></label>
+            <label for="contactSubject"><?php _e('Subjet', 'radiium')?><span class="required">*</span></label>
             <input class="formInput bordered" type="text" name="contactSubject" required="" aria-required="true" value="<?php if ( isset( $_POST['contactSubject'] ) ) echo $_POST['contactSubject'];?>">
             <?php if ( $subjectError != '' ) echo '<div class="error">'.$subjectError.'</div>' ?>
         </div>
 
         <!-- Message -->
         <div class="formRow flexCol formMessage">
-            <label for="contactMessage">Votre message<span class="required">*</span></label>
+            <label for="contactMessage"><?php _e('Your message', 'radiium')?><span class="required">*</span></label>
             <?php
             $contentText;
             if ( isset( $_POST['contactMessage'] )) {
@@ -158,14 +158,14 @@ if ( isset( $_POST['submitted'] ) ) {
         <div class="formRow flexCol formSendCopy">
             <div class="checkbox-btn">
                 <input class="formInput bordered" type="checkbox" name="sendCopy" id="sendCopy" value="true" <?php if( isset( $_POST['sendCopy'] ) && $_POST['sendCopy'] == true ) echo ' checked="checked"'; ?> />
-                <label for="sendCopy">Envoyer une copie</label>
+                <label for="sendCopy"><?php _e('Send a copy', 'radiium')?></label>
             </div>
         </div>
 
         <!-- Submit button -->
         <div class="formRow formSubmit">
             <input id="submitted" type="hidden" name="submitted" value="true" />
-            <input id="submit" class="submitBtn formInput bordered" type="submit" name="submit"    value="Envoyer">
+            <input id="submit" class="submitBtn formInput bordered" type="submit" name="submit" value="<?php _e('Send', 'radiium')?>">
         </div>
 
     </form>

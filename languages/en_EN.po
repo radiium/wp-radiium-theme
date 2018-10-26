@@ -1,0 +1,153 @@
+# Copyright (C) 2018 unnamed project
+# This file is distributed under the same license as the unnamed project package.
+msgid ""
+msgstr ""
+"Project-Id-Version: radiium\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: radiium\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;"
+"esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: ../404.php:11
+msgid "The requested file"
+msgstr "The requested file"
+
+#: ../404.php:12
+msgid "was not found. Oh no..."
+msgstr "was not found. Oh no…"
+
+#: ../404.php:13
+msgid "Return at /home"
+msgstr "Return at /home"
+
+#: ../contact.php:3
+msgid "Contact me"
+msgstr "Contact me"
+
+#: ../contact.php:28
+msgid "You forgot to enter your name."
+msgstr "You forgot to enter your name."
+
+#: ../contact.php:36
+msgid "You forgot to enter your email address."
+msgstr "You forgot to enter your email address."
+
+#: ../contact.php:40
+msgid "You entered an invalid email address."
+msgstr "You entered an invalid email address."
+
+#: ../contact.php:50
+msgid "You forgot to enter a subject."
+msgstr "You forgot to enter a subject."
+
+#: ../contact.php:58
+msgid "You forgot to enter your contactMessage."
+msgstr "You forgot to enter your contactMessage."
+
+#: ../contact.php:83
+msgid "You emailed Your Name"
+msgstr "You emailed Your Name"
+
+#: ../contact.php:84
+msgid "From: Your Name <noreply@somedomain.com>"
+msgstr "From: Your Name <noreply@somedomain.com>"
+
+#: ../contact.php:99
+msgid "Thank you"
+msgstr "Thank you"
+
+#: ../contact.php:100
+msgid "Your message has been sent successfully !"
+msgstr "Your message has been sent successfully !"
+
+#: ../contact.php:102
+msgid "Return at"
+msgstr "Return at"
+
+#: ../contact.php:110
+msgid "SAY HELLO!"
+msgstr "SAY HELLO!"
+
+#: ../contact.php:116
+msgid "There is an error in the form !"
+msgstr "There is an error in the form !"
+
+#: ../contact.php:122
+msgid "Your name"
+msgstr "Your name"
+
+#: ../contact.php:129
+msgid "Your email address"
+msgstr "Your email address"
+
+#: ../contact.php:136
+msgid "Subjet"
+msgstr "Subjet"
+
+#: ../contact.php:143
+msgid "Your message"
+msgstr "Your message"
+
+#: ../contact.php:161
+msgid "Send a copy"
+msgstr "Send a copy"
+
+#: ../contact.php:168
+msgid "Send"
+msgstr "Send"
+
+#: ../functions.php:12
+msgid "Primary"
+msgstr "Primary"
+
+#: ../functions.php:166
+msgid "Technical"
+msgstr "Technical"
+
+#: ../functions.php:167
+msgid "Enter technical"
+msgstr "Enter technical"
+
+#: ../functions.php:174
+msgid "Format"
+msgstr "Format"
+
+#: ../functions.php:175
+msgid "Enter format"
+msgstr "Enter format"
+
+#: ../functions.php:182
+msgid "Year"
+msgstr "Year"
+
+#: ../functions.php:183
+msgid "Enter year"
+msgstr "Enter year"
+
+#: ../templates/content.php:61
+msgid "Sort :"
+msgstr "Sort :"
+
+#: ../templates/content.php:79
+msgid "Categories :"
+msgstr "Categories :"
+
+#: ../templates/content.php:80
+msgid "Tags :"
+msgstr "Tags :"
+
+#~ msgid "Retour"
+#~ msgstr "Return"
