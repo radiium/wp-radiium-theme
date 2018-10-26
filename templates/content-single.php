@@ -17,9 +17,14 @@
             <!-- Post text -->
             <div class="singlePostInfosText singlePostInfosItem">
                 <?php
-                add_filter('the_content', 'remove_shortcode_from');
-                the_content();
-                remove_filter('the_content', 'remove_shortcode_from');
+
+                    $content_shortcode = preg_replace( '/\[gallery(.*?)\]/s' , '' , get_the_content() );
+                    $content = do_shortcode($content_shortcode);
+                    echo $content;
+
+                // add_filter('the_content', 'remove_shortcode_from');
+                // the_content();
+                // remove_filter('the_content', 'remove_shortcode_from');
                 ?>
             </div>
         </div>
