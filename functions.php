@@ -12,7 +12,7 @@ if ( ! function_exists( 'radiium_setup' ) ) {
         add_theme_support( 'title-tag' );
         add_theme_support( 'post-thumbnails' );
         register_nav_menus( array(
-            'radiiumMenu' => esc_html_e( 'Primary', 'radiium' ),
+            'radiiumMenu' => esc_html( 'Primary', 'radiium' ),
         ) );
         add_theme_support( 'custom-background', apply_filters( 'radiium_custom_background_args', array(
 			'default-color' => 'ffffff',
@@ -238,10 +238,8 @@ if ( !function_exists('radiium_image_shortcode' ) ) {
     add_shortcode('radiium_image', 'radiium_image_shortcode');
 }
 
-
-
 /**
- *  Custom tex block shortcode
+ *  Custom text bloc shortcode
  *
  *  example: [textBlock textFR="" textEN=""]
  */
