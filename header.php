@@ -37,7 +37,7 @@
 
                     <!-- Toogle Mobil nav button -->
                     <div class="navTogglelBtn">
-                        <img src="<?php echo get_site_url() ?>/wp-content/uploads/assets/plus.png" alt="">
+                        <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/plus.png" alt="">
                     </div>
                 </div>
 
@@ -52,15 +52,15 @@
                         <!-- Social icons -->
                         <div class="socialBtnWrapper">
                             <a class="socialBtn" target="_blank" href="https://www.instagram.com/_unlink/" title="Link to instagram!">
-                            <img src="<?php echo get_site_url() ?>/wp-content/uploads/assets/instache-logo.svg" alt="">
+                            <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/instache-logo.svg" alt="">
                             </a>
 
                             <a class="socialBtn" target="_blank" href="https://www.facebook.com/Rémi-Rémi-135772170533399/" title="Link to facebook!">
-                            <img src="<?php echo get_site_url() ?>/wp-content/uploads/assets/fache-logo.svg" alt="">
+                            <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/fache-logo.svg" alt="">
                             </a>
 
                             <a class="socialBtn gith" target="_blank" href="https://www.github.com/radiium/" title="Link to github!">
-                            <img src="<?php echo get_site_url() ?>/wp-content/uploads/assets/gitgit-logo.svg" alt="">
+                            <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/gitgit-logo.svg" alt="">
                             </a>
                         </div>
 
