@@ -260,9 +260,6 @@ if ( !function_exists('radiium_text_block_shortcode' ) ) {
         $enFlagSrc = get_site_url().'/wp-content/themes/radiium/assets/images/en-flag.png';
 
         $html = '';
-        $html .= '<script>';
-        $html .= '';
-        $html .= '</script>';
         $html .= '<div class="textBloc">';
         $html .= '  <div class="tabMenu">';
         $html .= '      <img src="'.$frFlagSrc.'" alt="" class="tabMenuItem1 tabMenuItem active" />';
