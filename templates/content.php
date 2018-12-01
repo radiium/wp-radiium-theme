@@ -15,6 +15,13 @@ function radiium_get_post_categories() {
     }
     return join(',', $category);
 }
+function radiium_get_post_tags() {
+    $tags = array();
+    foreach (get_the_tags() as $cat) {
+        array_push($tags, '"'.$cat->name.'"');
+    }
+    return join(',', $tags);
+}
 
 function radiium_get_post_gallery_count() {
     $gallery = get_post_gallery(0, false);
@@ -116,7 +123,9 @@ $userAgentClass = '';
     <?php while ( have_posts()) : the_post(); ?>
 
         <!-- Post item -->
-        <figure class="postsListItem hidenItem" data-groups='[<?php echo radiium_get_post_categories() ?>]'>
+        <figure class="postsListItem hidenItem"
+            data-groups='[<?php echo radiium_get_post_categories().','.radiium_get_post_tags() ?>]'
+            >
         <a class="postItemLink" href="<?php the_permalink() ?>" title="<?php the_title() ?>">
 
             <div class="thumb">
@@ -127,9 +136,11 @@ $userAgentClass = '';
             </div>
 
             <div class="postInfos <?php echo $userAgentClass?>">
-                <span class="postTitle"><?php the_title() ?></span>
+                <span class="postTitle"><?php the_title() ?>&nbsp;</span>
+                <!--
                 <span>&nbsp; - &nbsp;</span>
-                <span class="postCount">
+                -->
+                <span class="postCount">&nbsp;
                     <?php
                     $count = radiium_get_post_gallery_count();
                     if ($count > 1) {
