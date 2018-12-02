@@ -14,6 +14,11 @@
     <!-- BEGIN wrapper -->
     <div class="wrapper">
 
+        <!-- Return on top button -->
+        <div id="toTop" style="display: none;">
+            <div class="toTopIco">^</div>
+        </div>
+
         <!-- Navigation -->
         <div class="navWrapper">
             <div class="navigation">
