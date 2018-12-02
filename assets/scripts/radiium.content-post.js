@@ -1,5 +1,13 @@
 jQuery( document ).ready( function( $ ) {
 
+
+	// Reveal gallery items on scroll
+	var ScrollReveal = window.ScrollReveal;
+	ScrollReveal().reveal('.galItem', {
+		delay: 200
+	});
+
+
 	// Photoswap gallery init
 	// See: http://photoswipe.com/
 	var initPhotoSwipeFromDOM = function(gallerySelector) {
@@ -228,6 +236,9 @@ jQuery( document ).ready( function( $ ) {
 			openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
 		}
 	};
+
+
+
 
 	// execute above function
 	initPhotoSwipeFromDOM('.singlePostContent');

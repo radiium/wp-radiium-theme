@@ -40,7 +40,7 @@ if ( ! function_exists( 'radiium_scripts' ) ) {
 
         // Load Shufflejs script
         if( is_front_page() ) {
-            wp_enqueue_script( 'hull', get_template_directory_uri() . '/assets/vendor/hull.js');
+            // wp_enqueue_script( 'hull', get_template_directory_uri() . '/assets/vendor/hull.js');
 
             wp_enqueue_script( 'shuffle-js', get_template_directory_uri() . '/assets/vendor/Shuffle-5.2.0/shuffle.min.js' );
             wp_enqueue_script( 'polydiv', get_template_directory_uri() . '/assets/scripts/polydiv.min.js' );
@@ -53,6 +53,7 @@ if ( ! function_exists( 'radiium_scripts' ) ) {
             wp_enqueue_style( 'photoswipe-default-skin-css', get_template_directory_uri() . '/assets/vendor/PhotoSwipe-4.1.2/default-skin/default-skin.min.css' );
             wp_enqueue_script( 'photoswipe-js', get_template_directory_uri() . '/assets/vendor/PhotoSwipe-4.1.2/photoswipe-ui-default.min.js' );
             wp_enqueue_script( 'photoswipe-ui-default-js', get_template_directory_uri() . '/assets/vendor/PhotoSwipe-4.1.2/photoswipe.min.js' );
+            wp_enqueue_script( 'scroll-reveal-js', get_template_directory_uri() . '/assets/vendor/scrollReveal/scroll-reveal.min.js');
             wp_enqueue_script( 'radiium-content-post', get_template_directory_uri() . '/assets/scripts/radiium.content-post.min.js', array('jquery') );
         }
 
