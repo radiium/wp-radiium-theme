@@ -14,8 +14,8 @@
     <!-- BEGIN wrapper -->
     <div class="wrapper">
 
-        <!-- Return on top button -->
-        <div id="toTop" style="display: none;">
+        <!-- Return on top button  display: none; opacity: 0; -->
+        <div id="toTop" style="">
             <div class="toTopIco">^</div>
         </div>
 

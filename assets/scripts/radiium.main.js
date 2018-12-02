@@ -20,15 +20,17 @@ jQuery( document ).ready( function( $ ) {
 	$(window).on('scroll',function() {
 		var windowHeight = $(this).height();
         if ($(this).scrollTop() > windowHeight) {
-            $('#toTop').fadeIn(400);
+			$('#toTop').addClass('showToTop');
         } else {
-            $('#toTop').fadeOut(400);
+			$('#toTop').removeClass('showToTop');
         }
     });
 
-    $("#toTop").on("click",function() {
-        $("html, body").animate({ scrollTop: 0 }, 500);
-     });
+	$("#toTop")
+		.removeClass('showToTop')
+		.on("click",function() {
+			$("html, body").animate({ scrollTop: 0 }, 200);
+		});
 
 	// Translatable text bloc
 	$(".tabMenuItem1").click(function() {

@@ -82,20 +82,14 @@ $userAgentClass = '';
     </div>
 
 
-
-
-    <style>
-
-    </style>
-
     <!-- Posts grid -->
     <div class="postsList">
 
-    <?php
-        global $query_string;
-        query_posts ('posts_per_page=20');
-        while ( have_posts()) : the_post();
-    ?>
+        <?php
+            global $query_string;
+            query_posts ('posts_per_page=20');
+            while ( have_posts()) : the_post();
+        ?>
 
         <!-- Post item -->
         <figure class="postsListItem hidenItem"

@@ -99,13 +99,20 @@ $header_height_mini: 80px;
     padding: 5px 10px 0 10px;
     position: fixed;
     bottom: 10px;
-    right: 10px;
-    opacity: 0.5;
+    right: 15px;
+    opacity: 0;
+    display: none;
     border: 3px solid rgba(0, 0, 0, 0);
     @include transition(all linear .25s);
 
+    &.showToTop {
+        opacity: 0.5;
+        display: block;
+    }
+
     .toTopIco {
         font-size: 2em;
+        line-height: 1.1em;
         font-weight: bolder;
         @include transition(all linear .25s);
     }
