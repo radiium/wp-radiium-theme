@@ -266,6 +266,13 @@ $header_height_mini: 80px;
                 width: 100%;
                 height: auto;
             }
+
+            &.toggleActiv {
+                background-color: black;
+                img {
+                    filter: invert(100%);
+                }
+            }
         }
 
         .postControls {
@@ -880,13 +887,6 @@ $header_height_mini: 80px;
                     height: 45px;
                     min-height: 45px;
                     margin: 5px 5px 30px 5px;
-
-                    &.toggleActiv {
-                        background-color: black;
-                        img {
-                            filter: invert(100%);
-                        }
-                    }
                 }
             }
         }
