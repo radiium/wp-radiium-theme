@@ -4,7 +4,6 @@ jQuery( document ).ready( function( $ ) {
 	var itemSelector = 'postsListItem';
 
 	var Shuffle = window.Shuffle;
-	// var hull = window.hull;
     var element = document.querySelector('.' + gridSelector);
 
 	if (element && $(element).children().length > 0) {
@@ -15,8 +14,11 @@ jQuery( document ).ready( function( $ ) {
 		});
 		shuffleInstance.sort({ randomize: true });
 
+
+		// Add clip-path rules on gallery item image
 		var polydivInstance = new Polydiv({ itemClass: '.' + itemSelector + ' img'});
 		polydivInstance.clipItems();
+
 
 		var imgLoad = imagesLoaded( '.' + gridSelector);
 		imgLoad.on( 'done', function() {

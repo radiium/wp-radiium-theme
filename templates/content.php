@@ -105,6 +105,7 @@ $userAgentClass = '';
             </div>
 
             <div class="postInfos <?php echo $userAgentClass?>">
+
                 <span class="postTitle"><?php the_title() ?>&nbsp;</span>
                 <!--
                 <span>&nbsp; - &nbsp;</span>
@@ -118,6 +119,7 @@ $userAgentClass = '';
                         echo $count.' item';
                     } ?>
                 </span>
+
             </div>
             </a>
         </figure>

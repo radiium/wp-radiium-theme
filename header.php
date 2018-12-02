@@ -53,6 +53,7 @@
                     </div>
 
                     <div class="navFooter">
+
                         <!-- Social icons -->
                         <div class="socialBtnWrapper">
                             <a class="socialBtn" target="_blank" href="https://www.instagram.com/_unlink/" title="Link to instagram!">
