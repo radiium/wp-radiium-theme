@@ -72,42 +72,12 @@ $userAgentClass = '';
                 </div>
             </div>
 
-            <!-- Filters --
-            <div class="filtersContainer">
-                <div class="postControlsLabel">Filter :</div>
-                <div class="postControlsItems">
-                    <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
-                    <?php foreach (get_categories() as $cat) { ?>
-                        <input class="postFilterBtn postBtn" type="button" value="<?php echo $cat->name ?>" data-filter="<?php echo $cat->name ?>"></button>
-                    <?php } ?>
-                </div>
-            </div>
-            -->
+            <!-- Filters by categories -->
             <?php echo radiium_generate_filterbar( __('Categories', 'radiium'), get_categories()); ?>
+
+            <!-- Filters by tags -->
             <?php echo radiium_generate_filterbar( __('Tags', 'radiium') , get_tags()); ?>
 
-            <!-- Filters by categories --
-            <div class="filtersContainer">
-                <div class="postControlsLabel">Categories :</div>
-                <div class="postControlsItems">
-                    <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
-                    <?php foreach (get_categories() as $cat) { ?>
-                        <input class="postFilterBtn postBtn" type="button" value="<?php echo $cat->name ?>" data-filter="<?php echo $cat->name ?>"></button>
-                    <?php } ?>
-                </div>
-            </div>
-
-            -- Filters by tags --
-            <div class="filtersContainer">
-                <div class="postControlsLabel">Tags :</div>
-                <div class="postControlsItems">
-                    <input class="postFilterBtn postFilterAllBtn postBtn activ" type="button" value="All"  data-filter="all"></button>
-                    <?php foreach (get_tags() as $tag) { ?>
-                        <input class="postFilterBtn postBtn" type="button" value="<?php echo $tag->name ?>" data-filter="<?php echo $tag->name ?>"></button>
-                    <?php } ?>
-                </div>
-            </div>
-            -->
         </div>
     </div>
 
@@ -120,7 +90,12 @@ $userAgentClass = '';
 
     <!-- Posts grid -->
     <div class="postsList">
-    <?php while ( have_posts()) : the_post(); ?>
+
+    <?php
+        global $query_string;
+        query_posts ('posts_per_page=20');
+        while ( have_posts()) : the_post();
+    ?>
 
         <!-- Post item -->
         <figure class="postsListItem hidenItem"
