@@ -883,7 +883,9 @@ $header_height_mini: 80px;
 
                     &.toggleActiv {
                         background-color: black;
-                        filter: invert(100%);
+                        img {
+                            filter: invert(100%);
+                        }
                     }
                 }
             }
