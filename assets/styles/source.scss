@@ -54,6 +54,11 @@
             transform: $args;
 }
 
+@mixin filter($args...) {
+    -webkit-filter: $args;
+            filter: $args;
+}
+
 $header_height: 90px;
 $header_height_mini: 80px;
 
@@ -270,7 +275,7 @@ $header_height_mini: 80px;
             &.toggleActiv {
                 background-color: black;
                 img {
-                    filter: invert(100%);
+                    @include filter(invert(100%) brightness(2.4));
                 }
             }
         }
@@ -344,7 +349,7 @@ $header_height_mini: 80px;
 
                 &:hover {
                     .thumb {
-                        filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.4));
+                        @include filter(drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.4)));
                     }
 
                     .postInfos {
@@ -357,7 +362,7 @@ $header_height_mini: 80px;
                 .thumb {
                     height: 300px;
                     width: 300px;
-                    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
+                    @include filter(drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2)));
                     @include transition(all ease-in-out .1s);
 
                     img{
@@ -418,26 +423,23 @@ $header_height_mini: 80px;
 /*
 *******************************************/
 .singlePostWrapper {
-	height: 100%;
 	width: 100%;
 	margin: 0;
   	padding: 0;
-    overflow: hidden;
+    overflow: auto;
 
     .singlePostContainer {
         height: 100%;
         width: 100%;
         margin: 0;
         padding: 0;
-        overflow: hidden;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+        overflow: auto;
+        position: relative;
 
         .singlePostInfos {
             width: 40%;
             padding: 20px;
+            position: fixed;
 
             .singlePostInfosItem {
                 margin-bottom: 10px;
@@ -463,18 +465,30 @@ $header_height_mini: 80px;
                 font-size: 1.8em;
                 font-weight: bold;
                 margin-top: -10px;
+                margin-bottom: 5px;
+            }
+
+            .singlePostInfosTags {
                 margin-bottom: 20px;
+
+                .postTags {
+                    display: flex;
+                    opacity: 0.3;
+                    font-weight: bold;
+                    font-size: 0.9em;
+                    flex-wrap: wrap;
+                }
             }
         }
 
         .singlePostContent {
             height: 100%;
             width: 60%;
+            margin-left: 40%;
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: center;
-            overflow: auto;
 
             .galItem {
                 padding: 20px;
@@ -809,8 +823,7 @@ $header_height_mini: 80px;
             opacity: 0.5;
 
             &:not(.active) {
-                -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-                filter: grayscale(100%);
+                @include filter(grayscale(100%));
             }
 
             &.active {
@@ -818,8 +831,7 @@ $header_height_mini: 80px;
             }
 
             &:hover {
-                -webkit-filter: unset;
-                filter: unset;
+                @include filter(unset);
             }
         }
     }
@@ -888,6 +900,40 @@ $header_height_mini: 80px;
                     min-height: 45px;
                     margin: 5px 5px 30px 5px;
                 }
+            }
+        }
+    }
+
+    .singlePostWrapper {
+        height: auto;
+
+        .singlePostContainer {
+            height: auto;
+            flex-direction: column;
+            overflow: auto;
+
+            .singlePostInfos {
+                position: relative;
+                width: 100%;
+
+                .singlePostInfosItem,
+                .singlePostInfosTitle,
+                .singlePostInfosTags {
+                    text-align: center;
+                }
+                .singlePostInfosTags {
+                    .postTags {
+                        justify-content: center;
+                    }
+                }
+
+
+            }
+            .singlePostContent {
+                height: auto;
+                width: 100%;
+                margin-left: 0;
+                overflow: hidden;
             }
         }
     }

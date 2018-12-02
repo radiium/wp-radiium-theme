@@ -1,3 +1,17 @@
+<?php
+    function radiium_get_the_tags() {
+        $tags = get_the_tags();
+        $html = '<div class="postTags">';
+        $html .= '<div>Tags: &nbsp;</div>';
+
+        foreach ( $tags as $tag ) {
+            $html .= '<div>'.$tag->name.'&nbsp;</div>';
+        }
+        $html .= '</div>';
+        echo $html;
+    }
+?>
+
 <div id="post-<?php the_ID(); ?>" class="singlePostWrapper">
     <div class="singlePostContainer">
 
@@ -13,6 +27,10 @@
 
             <!-- Post Title -->
             <div class="singlePostInfosTitle singlePostInfosItem"><?php the_title_attribute(); ?></div>
+
+            <!-- Post Title -->
+            <div class="singlePostInfosTags singlePostInfosItem"><?php radiium_get_the_tags(); ?></div>
+
 
             <!-- Post text -->
             <div class="singlePostInfosText singlePostInfosItem">
