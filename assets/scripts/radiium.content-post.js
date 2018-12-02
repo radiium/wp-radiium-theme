@@ -151,18 +151,13 @@ jQuery( document ).ready( function( $ ) {
 			options = {
 
 				getDoubleTapZoom: function(isMouseClick, item) {
-					// console.log(item)
-					// console.log()
 					if (isMouseClick) {
 						return item.initialZoomLevel + 0.33;
 						if (item.initialZoomLevel < 0.7) {
-							console.log('getDoubleTapZoom 1', item.initialZoomLevel);
 							return 1;
 						} else if (item.initialZoomLevel > 0.7 && item.initialZoomLevel < 1) {
-							console.log('getDoubleTapZoom 1.22', item.initialZoomLevel);
 							return 1.22;
 						} else {
-							console.log('getDoubleTapZoom 1.33', item.initialZoomLevel);
 							return 1.33;
 						}
 					} else {

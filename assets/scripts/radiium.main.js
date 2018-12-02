@@ -19,11 +19,6 @@ jQuery( document ).ready( function( $ ) {
 	// Scroll to top button
 	$(window).on('scroll',function() {
 		var windowHeight = $(this).height();
-		console.log('================');
-		console.log('init scroll top');
-		console.log('windowHeight', windowHeight);
-		console.log('scrollTop', $(this).scrollTop());
-
         if ($(this).scrollTop() > windowHeight) {
             $('#toTop').fadeIn(400);
         } else {
@@ -32,8 +27,6 @@ jQuery( document ).ready( function( $ ) {
     });
 
     $("#toTop").on("click",function() {
-		console.log('================');
-		console.log('TO TOPPPPPPP');
         $("html, body").animate({ scrollTop: 0 }, 500);
      });
 
