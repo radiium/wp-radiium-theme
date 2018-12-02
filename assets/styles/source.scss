@@ -880,6 +880,11 @@ $header_height_mini: 80px;
                     height: 45px;
                     min-height: 45px;
                     margin: 5px 5px 30px 5px;
+
+                    &.toggleActiv {
+                        background-color: black;
+                        filter: invert(100%);
+                    }
                 }
             }
         }

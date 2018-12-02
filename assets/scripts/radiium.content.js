@@ -25,6 +25,7 @@ jQuery( document ).ready( function( $ ) {
 		});
 
 		$('.toggleFiltersBtn').click(function() {
+			$(this).toggleClass('toggleActiv');
 			$('.postControls').slideToggle(200);
 		});
 
