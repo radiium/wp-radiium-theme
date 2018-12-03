@@ -545,7 +545,15 @@ $header_height_mini: 80px;
                 .galItemInfos {
                     background-color: white;
                     font-weight: bold;
-                    padding: 10px;
+                    padding: 0 10px;
+
+                    .galItemTitle {
+                        font-size: 1em;
+                    }
+
+                    .galItemMeta {
+                        font-size: 0.8em;
+                    }
                 }
             }
         }

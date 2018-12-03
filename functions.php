@@ -102,10 +102,11 @@ if ( ! function_exists( 'customFormatGallery' ) ) {
             $imgFull = wp_get_attachment_image_src( $imagePost->ID, 'full' );
 
             // Caption and alt text
+            $radiium_title = get_post_meta($imagePost->ID, 'radiium_title', true);
             $radiium_tech = get_post_meta($imagePost->ID, 'radiium_tech', true);
             $radiium_format = get_post_meta($imagePost->ID, 'radiium_format', true);
             $radiium_year = get_post_meta($imagePost->ID, 'radiium_year', true);
-            $alt = $radiium_tech.' - '.$radiium_format.'- '.$radiium_year;
+            $alt = $radiium_title.' - '.$radiium_tech.' - '.$radiium_format.'- '.$radiium_year;
 
             $output .=
             '<figure id="galItem-'.$i.'"class="galItem">'.
@@ -113,10 +114,13 @@ if ( ! function_exists( 'customFormatGallery' ) ) {
             '       <img src="'.$srcMed.'" alt="'.$alt.'" itemprop="thumbnail" draggable="false" />'.
             '   </a>'.
             '   <figcaption class="galItemInfos" itemprop="caption description">';
-                if ( $radiium_tech != '' ) {
-                    $output .= '<div class="galItemTitle">'.$radiium_tech.'</div>';
+                if ( $radiium_title != '' ) {
+                    $output .= '<div class="galItemTitle">'.$radiium_title.'</div>';
                 }
                 $meta = array();
+                if ( $radiium_tech != '' ) {
+                    array_push($meta, $radiium_tech);
+                }
                 if ( $radiium_format != '' ) {
                     array_push($meta, $radiium_format);
                 }
@@ -128,7 +132,6 @@ if ( ! function_exists( 'customFormatGallery' ) ) {
                 }
 
             $output .= '</figcaption></figure>';
-
             $i++;
         }
         $output .= "</div>";
@@ -157,12 +160,21 @@ if ( ! function_exists( 'remove_shortcode_from' ) ) {
  *
  *      * fields:
  *      ---------
+ *      - radiium_title  : Title
  *      - radiium_tech   : Artistic technique
  *      - radiium_format : real dimension of the work
  *      - radiium_year   : year of creation
  */
 if ( ! function_exists( 'radiium_add_media_custom_field' ) ) {
     function radiium_add_media_custom_field( $form_fields, $post ) {
+
+        $radiium_title = get_post_meta( $post->ID, 'radiium_title', true );
+        $form_fields['radiium_title'] = array(
+            'value' => $radiium_title ? $radiium_title : '',
+            'label' => __( 'Title', 'radiium' ),
+            'helps' => __( 'Enter title', 'radiium' ),
+            'input'  => 'text'
+        );
 
         $radiium_tech = get_post_meta( $post->ID, 'radiium_tech', true );
         $form_fields['radiium_tech'] = array(
@@ -199,6 +211,11 @@ if ( ! function_exists( 'radiium_add_media_custom_field' ) ) {
  */
 if ( ! function_exists( 'radiium_save_attachment' ) ) {
     function radiium_save_attachment( $attachment_id ) {
+
+        if ( isset( $_REQUEST['attachments'][ $attachment_id ]['radiium_title'] ) ) {
+            $radiium_title = $_REQUEST['attachments'][ $attachment_id ]['radiium_title'];
+            update_post_meta( $attachment_id, 'radiium_title', $radiium_title );
+        }
 
         if ( isset( $_REQUEST['attachments'][ $attachment_id ]['radiium_tech'] ) ) {
             $radiium_tech = $_REQUEST['attachments'][ $attachment_id ]['radiium_tech'];
