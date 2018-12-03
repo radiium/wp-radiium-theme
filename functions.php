@@ -260,7 +260,7 @@ if ( !function_exists('radiium_image_shortcode' ) ) {
 /**
  *  Custom text bloc shortcode
  *
- *  example: [textBlock textFR="" textEN=""]
+ *  example: [bloc fr="" en=""]
  */
 if ( !function_exists('radiium_text_block_shortcode' ) ) {
     function radiium_text_bloc_shortcode( $atts ) {
