@@ -3,9 +3,16 @@
 <head>
     <meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>" charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="profile" href="http://gmpg.org/xfn/11">
+    <meta name="description" content="Visual art and others experiences">
+
+    <!-- Social site recognition -->
+    <meta property="og:title" content="Rémi Poncet - visual art" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="https://radiium.space/" />
+    <meta property="og:image" content="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/plus.png" />
+
     <?php wp_head(); ?>
 </head>
 
@@ -15,7 +22,7 @@
     <div class="wrapper">
 
         <!-- Return on top button  display: none; opacity: 0; -->
-        <div id="toTop" style="">
+        <div id="toTop">
             <div class="toTopIco">^</div>
         </div>
 
