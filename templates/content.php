@@ -99,7 +99,7 @@ $userAgentClass = '';
 
             <div class="thumb">
             <?php
-            $thumb = has_post_thumbnail() ? the_post_thumbnail( 'large', array('draggable'=>'false') ) : '<div class="postItemThumbReplace"></div>';
+            $thumb = has_post_thumbnail() ? the_post_thumbnail( 'medium', array('draggable'=>'false') ) : '<div class="postItemThumbReplace"></div>';
             echo $thumb;
             ?>
             </div>
