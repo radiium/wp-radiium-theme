@@ -43,7 +43,12 @@ gulp.task('compress:watch', function() {
 // Compil SASS files
 gulp.task('sass', function () {
     return gulp.src('./assets/styles/source.scss')
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError)) // compressed / compact
+        .pipe(
+            sass({
+                outputStyle: 'compressed' // compressed / compact
+            })
+            .on('error', sass.logError)
+        )
         .pipe(rename('style.css'))
         .pipe(gulp.dest('./'));
 });
@@ -56,3 +61,6 @@ gulp.task('sass:watch', function () {
 
 // Watch SASS/js files change
 gulp.task('all:watch', ['sass:watch', 'compress:watch']);
+
+
+gulp.task('default', ['all:watch']);
