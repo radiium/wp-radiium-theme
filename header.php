@@ -30,7 +30,6 @@
         <div class="navWrapper">
             <div class="navigation">
 
-
                 <!-- Nav header -->
                 <div class="navBar">
                     <!-- Site logo -->
@@ -51,7 +50,6 @@
                         <img src="<?php echo get_site_url() ?>/wp-content/themes/radiium/assets/images/plus.png" alt="">
                     </div>
                 </div>
-
 
                 <!-- Nav items -->
                 <div class="navItemsMobil">
