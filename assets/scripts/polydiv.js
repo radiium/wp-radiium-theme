@@ -20,7 +20,6 @@
 
     'use strict';
 
-
     var Constructor = function (options) {
 
         var Polydiv = {
