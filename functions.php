@@ -42,7 +42,7 @@ if ( ! function_exists( 'radiium_scripts' ) ) {
         if( is_front_page() ) {
             // wp_enqueue_script( 'hull', get_template_directory_uri() . '/assets/vendor/hull.js');
 
-            wp_enqueue_script( 'shuffle-js', get_template_directory_uri() . '/assets/vendor/Shuffle-5.2.0/shuffle.min.js' );
+            wp_enqueue_script( 'shuffle-js', get_template_directory_uri() . '/assets/vendor/Shuffle-5.2.1/shuffle.min.js' );
             wp_enqueue_script( 'polydiv', get_template_directory_uri() . '/assets/scripts/polydiv.min.js' );
             wp_enqueue_script( 'radiium-content', get_template_directory_uri() . '/assets/scripts/radiium.content.min.js', array('jquery') );
         }
